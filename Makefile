@@ -27,8 +27,10 @@ $(NAME): $(MLX42) $(LIBFT) $(OBJ)
 	@echo "$(GREEN)Done! ✅$(RESET)"
 	@echo "$(RED)------------------------------$(RESET)"
 
-$(LIBFT):
-	@$(MAKE) --no-print-directory -C ./lib/libft
+$(LIBFT): $(LIBFT)
+
+$(LIBFT_DIR):
+	@git clone https://github.com/Thedeivi10/Libft.git
 
 $(OBJ_DIR)/%.o: ./src/%.c
 	@mkdir -p $(OBJ_DIR)

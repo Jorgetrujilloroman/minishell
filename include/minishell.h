@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/20 18:49:35 by jotrujil         ###   ########.fr       */
+/*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
+/*   Updated: 2025/01/20 18:51:11 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#ifndef MINISHELL_H
 
-int	main(int argc, char **argv, char **envp)
-{
-	char	*out;
+# define MINISHELL_H
 
-	while (argc && argv)
-	{
-		out = readline("anon@minishell $ ");
-	}
-}
+# include <readline/readline.h>
+# include <readline/history.h>
+
+#endif
