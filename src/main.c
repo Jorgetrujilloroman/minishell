@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/20 18:49:35 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:29:45 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,14 @@ int	main(int argc, char **argv, char **envp)
 	while (argc && argv)
 	{
 		out = readline("anon@minishell $ ");
+		if (out[0] != '\0')
+			add_history(out);
+		if (!out)
+		{
+			printf("exit\n");
+			return (0);
+		}
+		(void)out;
+		(void)envp;
 	}
 }
