@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/21 23:42:38 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/21 23:48:49 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	g_status;
 /* Get pid to minishell process */
 static void	ft_ms_get_pid(t_prompt *prompt)
 {
-	pid_t pid;
+	pid_t	pid;
 
 	pid = fork();
 	if (pid < 0)
