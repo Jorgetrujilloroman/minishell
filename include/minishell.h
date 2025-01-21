@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/21 11:47:23 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:36:34 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,17 @@ typedef struct s_mini
 	char	**full_cmd;
 	char	*full_path;
 	int		infile;
-	int		outfile;
+	int		outfile; 
 }	t_mini;
 
+// UTILS
+
+/* Count how many strings there are in the matrix */
+int		ft_size_matrix(char **matrix);
+/* Copy matrix and allocate memory */
+char	**ft_dup_matrix(char **envp);
+void	ft_free_matrix(char **matrix);
+/* Write the error in the error console */
+void	ft_put_error(char *s);
 
 #endif
