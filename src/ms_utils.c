@@ -6,11 +6,11 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 12:57:49 by davigome          #+#    #+#             */
-/*   Updated: 2025/01/21 13:36:55 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/21 22:25:18 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/minishell.h"
+#include "../include/minishell.h"
 
 void	ft_free_matrix(char **matrix)
 {
@@ -59,4 +59,23 @@ char	**ft_dup_matrix(char **envp)
 void	ft_put_error(char *s)
 {
 	write(2, s, ft_strlen(s));
+}
+
+int	ms_strchr_pos(char *s, int c)
+{
+	int				pos;
+	unsigned char	c_unsigned;
+	
+	pos = -1;
+	if (!s)
+		return (-1);
+	c_unsigned = (unsigned char)c;
+	while(s[++pos] != '\0')
+	{
+		if (s[pos] == c_unsigned)
+			return (pos);
+	}
+	if (c_unsigned == '\0')
+		return (pos);
+	return (-1);
 }
