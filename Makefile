@@ -9,6 +9,8 @@ INCLUDE 	:= -I ./include
 
 SRC_DIR 	:= src
 SRC			:= main.c \
+				ms_env.c \
+				ms_utils.c \
 
 OBJ_DIR 	:= obj
 OBJ 		:= $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))

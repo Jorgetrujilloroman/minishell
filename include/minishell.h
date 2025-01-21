@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/21 13:36:34 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/21 23:15:53 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,13 @@ char	**ft_dup_matrix(char **envp);
 void	ft_free_matrix(char **matrix);
 /* Write the error in the error console */
 void	ft_put_error(char *s);
+/* Return the position where the character sent is found */
+int	ms_strchr_pos(char *s, int c);
+
+// PARSE
+/* Check and add an env */
+char	**ms_add_env(char *var, char *value, char **envp);
+/* Take the value of the env that you want if it exists */
+char	*ms_get_env(char *var, char **envp, int n);
 
 #endif
