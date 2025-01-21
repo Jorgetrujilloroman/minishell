@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/21 23:15:53 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/21 23:42:12 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_mini
 	char	**full_cmd;
 	char	*full_path;
 	int		infile;
-	int		outfile; 
+	int		outfile;
 }	t_mini;
 
 // UTILS
@@ -44,7 +44,7 @@ void	ft_free_matrix(char **matrix);
 /* Write the error in the error console */
 void	ft_put_error(char *s);
 /* Return the position where the character sent is found */
-int	ms_strchr_pos(char *s, int c);
+int		ms_strchr_pos(char *s, int c);
 
 // PARSE
 /* Check and add an env */
