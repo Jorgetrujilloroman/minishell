@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/21 23:16:06 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/21 23:42:38 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	g_status;
 
 /* Get pid to minishell process */
-static void ft_ms_get_pid(t_prompt *prompt)
+static void	ft_ms_get_pid(t_prompt *prompt)
 {
 	pid_t pid;
 
@@ -41,7 +41,7 @@ static t_prompt	ms_init_envp(t_prompt prompt, char **argv)
 	char	*str;
 	char	*num;
 
-	str = getcwd(NULL,0);
+	str = getcwd(NULL, 0);
 	prompt.envp = ms_add_env("PWD", str, prompt.envp);
 	free(str);
 	str = ms_get_env("SHLVL", prompt.envp, 5);
@@ -86,7 +86,7 @@ int	main(int argc, char **argv, char **envp)
 	char		*str; */
 
 	if (argc > 100)
-		return 0;
+		return (0);
 	prompt = ft_start_ms(argv, envp);
 	int i = -1;
 	while (prompt.envp[++i])
