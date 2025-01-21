@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/20 23:30:23 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:47:23 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_prompt
 	char	**envp;
 }	t_prompt;
 
-typedef struct	s_mini
+typedef struct s_mini
 {
 	char	**full_cmd;
 	char	*full_path;
