@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/21 11:48:13 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:56:00 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,21 @@
 
 int	g_status;
 
-//Esta función inicializa el prompt, copia las variables de entorno
+/* This function initializes the prompt, copies the environment variables
+and gets the pid */
 
-t_prompt	ft_start_shell(char **argv, char **envp)
+static t_prompt	ft_start_shell(char **argv, char **envp)
 {
+	t_prompt	prompt;
+	char		*str;
 
+	str = NULL;
+	prompt.cmds = NULL;
+	prompt.envp = ft_dup_matrix(envp); //TODO ft_dup_matrix
+	g_status = 0;
+	ms_get_pid(&prompt); //TODO: get minishell pid
+	prompt = init_vars(prompt, argv, str); //TODO: init_vars func
+	return (prompt);
 }
 
 int	main(int argc, char **argv, char **envp)
