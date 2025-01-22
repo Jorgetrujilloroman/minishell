@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:57:37 by davigome          #+#    #+#             */
-/*   Updated: 2025/01/22 09:14:15 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/22 21:20:34 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	**ms_add_env(char *var, char *value, char **envp)
 {
 	int		count[2];
 	char	*temp[2];
-	
+
 	count[0] = -1;
 	temp[0] = ft_strjoin(var, "=");
 	temp[1] = ft_strjoin(temp[0], value);

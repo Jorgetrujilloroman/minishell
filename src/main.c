@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/22 17:41:42 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/22 21:26:59 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,6 @@ int	main(int argc, char **argv, char **envp)
 	char		*output;
 	char		*str;
 
-	if (argc > 100)
-		return (0);
 	prompt = ft_start_ms(argv, envp);
 	while (argc && argv)
 	{
@@ -99,6 +97,6 @@ int	main(int argc, char **argv, char **envp)
 			output = readline("guest@minishell $ ");
 		free(str);
 		if (!parse_ms(output, &prompt))
-			break;
+			break ;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/22 18:03:20 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/22 20:29:25 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ int		ms_strchr_pos(char *s, int c);
 void	if_sigint(int sig);
 /* Make substr from set to the next set string*/
 char	*strtrim(char const *s1, char const *set);
+/* Count how many str there are in the output separated with c character */
+int		ms_count_strs(const char *s, char *c, int i[2]);
+/* Create a matrix from s separated with char set */
+char	**ms_separate_matrix(char **aux, char const *s, char *set, int i[3]);
 
 // PARSE
 /* Add the new str in the end of the matrix */
@@ -71,4 +75,7 @@ char	*ms_get_prompt(t_prompt prompt);
 void	ms_get_exec(char ***out, char *full, char *args, char **envp);
 /* Execute the parse and executor */
 void	*parse_ms(char *output, t_prompt *prompt);
+/* Separate the arguments from output in a matrix */
+char	**ms_trim(char const *s, char *set);
+
 #endif

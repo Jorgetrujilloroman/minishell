@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 09:22:34 by davigome          #+#    #+#             */
-/*   Updated: 2025/01/22 15:22:37 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/22 21:26:19 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ms_update_output(char ***matrix, int fd)
 	{
 		read = get_next_line(fd);
 		if (!read)
-			break;
+			break ;
 		temp = strtrim(read, "\n");
 		free(read);
 		new = ms_add_end_env(new, temp);
