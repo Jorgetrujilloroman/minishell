@@ -1,7 +1,7 @@
 PROJECT 	:= minishell 
 CC 			:= gcc
 
-CFLAGS		:= -Wextra -Wall -Werror #-g -fsanitize=address
+CFLAGS		:= -Wextra -Wall -Werror -g #-fsanitize=address
 LDFLAGS     := -lreadline
 
 LIBFT		:= ./lib/libft/libft.a
@@ -11,6 +11,9 @@ SRC_DIR 	:= src
 SRC			:= main.c \
 				ms_env.c \
 				ms_utils.c \
+				ms_get_exec.c \
+				ms_prompt.c \
+				ms_parse.c \
 
 OBJ_DIR 	:= obj
 OBJ 		:= $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))

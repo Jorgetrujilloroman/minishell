@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/21 23:42:12 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:03:20 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 # include <readline/history.h>
 # include "../libft/libft.h"
 # include <sys/wait.h>
+# include <signal.h>
+# include <sys/ioctl.h>
+
+//COLORS
+# define DEFAULT "\001\033[0;39m\002"
+# define ORANGE "\001\033[1;38;5;208m\002"
+# define GREEN  "\001\033[1;32m\002"
+# define GREEN_OLIVE "\001\033[1;38;5;100m\002" // Definir el color verde oliva
 
 typedef struct s_prompt
 {
@@ -32,7 +40,7 @@ typedef struct s_mini
 	char	*full_path;
 	int		infile;
 	int		outfile;
-}	t_mini;
+}	t_command;
 
 // UTILS
 
@@ -45,11 +53,22 @@ void	ft_free_matrix(char **matrix);
 void	ft_put_error(char *s);
 /* Return the position where the character sent is found */
 int		ms_strchr_pos(char *s, int c);
+/* Handle when the input is a Ctrl+C signal */
+void	if_sigint(int sig);
+/* Make substr from set to the next set string*/
+char	*strtrim(char const *s1, char const *set);
 
 // PARSE
+/* Add the new str in the end of the matrix */
+char	**ms_add_end_env(char	**matrix, char *new);
 /* Check and add an env */
 char	**ms_add_env(char *var, char *value, char **envp);
 /* Take the value of the env that you want if it exists */
 char	*ms_get_env(char *var, char **envp, int n);
-
+/* Get the prompt to show in the terminal */
+char	*ms_get_prompt(t_prompt prompt);
+/* Executes a command and saves output to string ending in \n */
+void	ms_get_exec(char ***out, char *full, char *args, char **envp);
+/* Execute the parse and executor */
+void	*parse_ms(char *output, t_prompt *prompt);
 #endif
