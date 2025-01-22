@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/22 12:03:48 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:56:48 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_mini
 	char	*full_path;
 	int		infile;
 	int		outfile;
-}	t_mini;
+}	t_mini; // rename for command?
 
 typedef struct s_builtin
 {

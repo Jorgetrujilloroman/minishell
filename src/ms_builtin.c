@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:51:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/22 14:42:23 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:58:29 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,23 @@ int	exec_builtin(t_prompt *prompt, t_list *cmd, int *terminate)
 	full_cmd = ((t_mini *)cmd->content)->full_cmd;
 	i = 0;
 	init_builtins(builtins);
-	
+	if (full_cmd && !ft_strncmp(*full_cmd, "exit", ft_strlen(*full_cmd))
+		&& ft_strlen(*full_cmd) == 4)
+	{
+		g_status = ms_exit(cmd, terminate);
+		return (1);
+	}
+	while (builtins[i].name)
+	{
+		if (full_cmd && !ft_strncmp(*full_cmd, builtins[i].name,
+				ft_strlen(builtins[i].name)))
+		{
+			g_status = builtins[i].func(prompt);
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
 
 int	builtin(t_prompt *prompt, t_list *cmd, int	*terminate)
