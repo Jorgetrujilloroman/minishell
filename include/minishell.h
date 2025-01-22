@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/22 14:56:48 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:35:29 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,11 @@ int		ms_strchr_pos(char *s, int c);
 char	**ms_add_env(char *var, char *value, char **envp);
 /* Take the value of the env that you want if it exists */
 char	*ms_get_env(char *var, char **envp, int n);
+
+
+// EXECUTE
+
+/* Runs over cmds and execute builtins. Execute the cmd if it isn't a builtin */
+int		builtin(t_prompt *prompt, t_list *cmd, int	*terminate);
 
 #endif

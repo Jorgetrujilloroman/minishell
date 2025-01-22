@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:51:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/22 14:58:29 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:14:08 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 extern int	g_status;
 
-void	init_builtins(t_builtin *builtins)
+// Initialize all the custom builtins and assign their functions
+
+static void	init_builtins(t_builtin *builtins)
 {
 	builtins[0] = (t_builtin){"cd", ms_cd};
 	builtins[1] = (t_builtin){"export", ms_export}; //TODO: ms_ funcs
@@ -22,7 +24,9 @@ void	init_builtins(t_builtin *builtins)
 	builtins[3] = (t_builtin){NULL, NULL};
 }
 
-int	exec_builtin(t_prompt *prompt, t_list *cmd, int *terminate)
+// Execute the builtins or exit the minishell if the exit builtin is executed
+
+static int	exec_builtin(t_prompt *prompt, t_list *cmd, int *terminate)
 {
 	char		**full_cmd;
 	t_builtin	builtins[4];
