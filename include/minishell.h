@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/21 23:42:12 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/22 12:03:48 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <readline/history.h>
 # include "../libft/libft.h"
 # include <sys/wait.h>
+# include <signal.h>
 
 typedef struct s_prompt
 {
@@ -33,6 +34,13 @@ typedef struct s_mini
 	int		infile;
 	int		outfile;
 }	t_mini;
+
+typedef struct s_builtin
+{
+	char	*name;
+	int		(*func)(t_prompt *);
+}	t_builtin;
+
 
 // UTILS
 
