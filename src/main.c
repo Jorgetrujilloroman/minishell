@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/21 23:48:49 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:23:01 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,26 +82,23 @@ static t_prompt	ft_start_ms(char **argv, char **envp)
 int	main(int argc, char **argv, char **envp)
 {
 	t_prompt	prompt;
-/* 	char		*output;
-	char		*str; */
+	char		*output;
+	char		*str;
 
 	if (argc > 100)
 		return (0);
 	prompt = ft_start_ms(argv, envp);
-	int i = -1;
-	while (prompt.envp[++i])
-		printf("%s\n", prompt.envp[i]);
-	/* while (argc && argv)
+	while (argc && argv)
 	{
-		output = readline("anon@minishell $ ");
-		if (output[0] != '\0')
-			add_history(output);
-		if (!output)
-		{
-			printf("exit\n");
-			return (0);
-		}
-		(void)output;
-		(void)envp;
-	} */
+		signal(SIGINT, if_sigint);
+		signal(SIGQUIT, SIG_IGN);
+		str = ms_get_prompt(prompt);
+		if (str)
+			output = readline(str);
+		else
+			output = readline("guest@minishell $ ");
+		free(str);
+		if (!parse_ms(output, &prompt))
+			break;
+	}
 }

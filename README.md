@@ -1,22 +1,22 @@
-# Minishell
+## Minishell
 
-## Tan bonito como shell
+## As pretty as shell
 
 42 Malaga Project with my colleague [@davigome](https://profile.intra.42.fr/users/davigome)
 
-### Resumen
-El proyecto **Minishell** tiene como objetivo crear un shell sencillo desde cero, similar a Bash. A través de este proyecto, aprenderás sobre procesos, manejo de file descriptors y otros conceptos esenciales del sistema operativo.
+### Summary
+The **Minishell** project aims to create a simple shell from scratch, similar to Bash. Through this project, you will learn about processes, file descriptor handling and other essential operating system concepts.
 
-### Características principales
-- **Interfaz interactiva:** Entrada de comandos con historial funcional.
-- **Gestión de comandos:** Ejecución de programas basados en PATH o rutas específicas.
-- **Redirecciones:** Soporte para `<`, `>`, `<<`, `>>`.
-- **Pipes:** Comunicación entre comandos mediante `|`.
-- **Variables de entorno:** Expansión de `$` y soporte para `$?`.
-- **Señales:** Manejo de `ctrl-C`, `ctrl-D`, y `ctrl-\` como en Bash.
-- **Built-ins implementados:** `echo`, `cd`, `pwd`, `export`, `unset`, `env`, `exit`.
+### Main features
+- **Interactive interface:** Command entry with functional history.
+- **Command management:** Execution of programs based on PATH or specific paths.
+- **Redirections:** Support for `<`, `>`, `<<`, `>>`.
+- **Pipes:** Communication between commands using `|`.
+- **Environment variables:** Expansion of `$` and support for `$`.
+- **Signals:** Handling of `ctrl-C`, `ctrl-D`, and `ctrl-` as in Bash.
+- **Built-ins implemented:** `echo`, `cd`, `pwd`, `export`, `unset`, `env`, `exit`.
 
-### Requisitos técnicos
-- Lenguaje: **C**.
-- Funciones autorizadas: `readline`, `fork`, `execve`, `pipe`, entre otras.
-- Gestión de memoria: **Sin leaks** (excepto los propios de `readline`).
+### Technical requirements
+- Language: **C**.
+- Authorized functions: `readline`, `fork`, `execve`, `pipe`, among others.
+- Memory management: **No leaks** (except for `readline`).

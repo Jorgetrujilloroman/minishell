@@ -6,14 +6,13 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:57:37 by davigome          #+#    #+#             */
-/*   Updated: 2025/01/21 23:32:10 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:23:27 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-/* Add the new str in the end of the matrix */
-static	char	**ms_add_end_env(char	**matrix, char *new)
+char	**ms_add_end_env(char	**matrix, char *new)
 {
 	char	**new_matrix;
 	int		len;
