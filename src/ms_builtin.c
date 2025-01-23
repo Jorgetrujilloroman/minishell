@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:51:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/22 17:14:08 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:35:15 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ extern int	g_status;
 
 static void	init_builtins(t_builtin *builtins)
 {
-	builtins[0] = (t_builtin){"cd", ms_cd};
-	builtins[1] = (t_builtin){"export", ms_export}; //TODO: ms_ funcs
-	builtins[2] = (t_builtin){"unset", ms_unset};
+	//builtins[0] = (t_builtin){"cd", ms_cd};
+	//builtins[1] = (t_builtin){"export", ms_export}; //TODO: ms_ funcs
+	//builtins[2] = (t_builtin){"unset", ms_unset};
 	builtins[3] = (t_builtin){NULL, NULL};
 }
 
@@ -32,7 +32,7 @@ static int	exec_builtin(t_prompt *prompt, t_list *cmd, int *terminate)
 	t_builtin	builtins[4];
 	int			i;
 
-	full_cmd = ((t_mini *)cmd->content)->full_cmd;
+	full_cmd = ((t_command *)cmd->content)->full_cmd;
 	i = 0;
 	init_builtins(builtins);
 	if (full_cmd && !ft_strncmp(*full_cmd, "exit", ft_strlen(*full_cmd))
@@ -62,7 +62,7 @@ int	builtin(t_prompt *prompt, t_list *cmd, int	*terminate)
 		{
 			signal(SIGINT, SIG_IGN);
 			signal(SIGQUIT, SIG_IGN);
-			exec_cmd(prompt, cmd);
+			exec_cmd(prompt, cmd); //todo
 		}
 		cmd = cmd->next;
 	}

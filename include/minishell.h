@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/23 13:46:16 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:25:15 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_prompt
 	char	**envp;
 }	t_prompt;
 
-typedef struct s_mini
+typedef struct s_command
 {
 	char	**full_cmd;
 	char	*full_path;
@@ -83,4 +83,6 @@ void	*parse_ms(char *output, t_prompt *prompt);
 
 /* Runs over cmds and execute builtins. Execute the cmd if it isn't a builtin */
 int		builtin(t_prompt *prompt, t_list *cmd, int	*terminate);
+/* Handling the exit of the program with a status code based on the arguments */
+int		ms_exit(t_list *cmd, int *terminate);
 #endif
