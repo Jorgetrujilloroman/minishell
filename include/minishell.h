@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/01/22 17:35:29 by jotrujil         ###   ########.fr       */
-=======
-/*   Updated: 2025/01/22 18:21:58 by davigome         ###   ########.fr       */
->>>>>>> main
+/*   Updated: 2025/01/23 13:46:16 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +19,6 @@
 # include "../libft/libft.h"
 # include <sys/wait.h>
 # include <signal.h>
-<<<<<<< HEAD
-=======
 # include <sys/ioctl.h>
 
 //COLORS
@@ -32,7 +26,6 @@
 # define ORANGE "\001\033[1;38;5;208m\002"
 # define GREEN  "\001\033[1;32m\002"
 # define GREEN_OLIVE "\001\033[1;38;5;100m\002" // Definir el color verde oliva
->>>>>>> main
 
 typedef struct s_prompt
 {
@@ -47,18 +40,13 @@ typedef struct s_mini
 	char	*full_path;
 	int		infile;
 	int		outfile;
-<<<<<<< HEAD
-}	t_mini; // rename for command?
+}	t_command;
 
 typedef struct s_builtin
 {
 	char	*name;
 	int		(*func)(t_prompt *);
 }	t_builtin;
-
-=======
-}	t_command;
->>>>>>> main
 
 // UTILS
 
@@ -77,26 +65,22 @@ void	if_sigint(int sig);
 char	*strtrim(char const *s1, char const *set);
 
 // PARSE
+
 /* Add the new str in the end of the matrix */
 char	**ms_add_end_env(char	**matrix, char *new);
 /* Check and add an env */
 char	**ms_add_env(char *var, char *value, char **envp);
 /* Take the value of the env that you want if it exists */
 char	*ms_get_env(char *var, char **envp, int n);
-<<<<<<< HEAD
-
-
-// EXECUTE
-
-/* Runs over cmds and execute builtins. Execute the cmd if it isn't a builtin */
-int		builtin(t_prompt *prompt, t_list *cmd, int	*terminate);
-
-=======
 /* Get the prompt to show in the terminal */
 char	*ms_get_prompt(t_prompt prompt);
 /* Executes a command and saves output to string ending in \n */
 void	ms_get_exec(char ***out, char *full, char *args, char **envp);
 /* Execute the parse and executor */
 void	*parse_ms(char *output, t_prompt *prompt);
->>>>>>> main
+
+// EXECUTE
+
+/* Runs over cmds and execute builtins. Execute the cmd if it isn't a builtin */
+int		builtin(t_prompt *prompt, t_list *cmd, int	*terminate);
 #endif
