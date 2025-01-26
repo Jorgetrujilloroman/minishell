@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:06:50 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/26 13:08:06 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/26 14:20:09 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	ms_exit(t_list *cmd, int *terminate)
 	}
 	return (status);
 }
+
 // Update the env vars after doing a cd builtin
 static void	cd_update_env_vars(t_prompt *p, char *oldpwd)
 {
@@ -81,4 +82,50 @@ int	ms_cd(t_prompt *p)
 		cd_update_env_vars(p, old_pwd);
 	free(home);
 	free(old_pwd);
+}
+
+/* Export and updates or adds environment variables in prompt->envp as needed */
+static void	export_update_envp(t_prompt *p, char **argv)
+{
+	int	ij[2];
+	int	len;
+
+	ij[0] = 1;
+	while (argv[ij[0]])
+	{
+		len = ms_strchr_pos(argv[ij[0]], '=');
+		if (len == -1)
+			len = ft_strlen(argv[ij[0]]);
+		ij[1] = 0;
+		while (p->envp[ij[1]])
+		{
+			if (!ft_strncmp(p->envp[ij[1]], argv[ij[0]], len)
+				&& (p->envp[ij[1]][len] == '=' || p->envp[ij[1]][len] == '\0'))
+			{
+				free(p->envp[ij[1]]);
+				p->envp[ij[1]] = ft_strdup(argv[ij[0]]);
+				break ;
+			}
+		}
+		if (!p->envp[ij[1]])
+			p->envp = ms_add_end_env(p->envp, argv[ij[0]]);
+		ij[0]++;
+	}
+}
+
+int	ms_export(t_prompt *p)
+{
+	char	**argv;
+	int		i;
+
+	argv = ((t_command *)p->cmds->content)->full_cmd;
+	if (ft_size_matrix(argv) == 1)
+	{
+		i = 0;
+		while (p->envp[i])
+			printf("declare -x %s\n", p->envp[i++]);
+	}
+	else
+		export_update_envp(p, argv);
+	return (0);
 }

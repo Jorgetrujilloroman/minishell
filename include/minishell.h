@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/26 13:05:01 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/26 14:20:31 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,6 @@ int		builtin(t_prompt *prompt, t_list *cmd, int	*terminate);
 int		ms_exit(t_list *cmd, int *terminate);
 /* Changes the currend working directory and update the related env vars */
 int		ms_cd(t_prompt *p);
+/* Minishell implementation of export builtin */
+int		ms_export(t_prompt *p);
 #endif
