@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/23 17:25:15 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/26 13:05:01 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*strtrim(char const *s1, char const *set);
 
 /* Add the new str in the end of the matrix */
 char	**ms_add_end_env(char	**matrix, char *new);
-/* Check and add an env */
+/* Add or update an environment variable if already exists */
 char	**ms_add_env(char *var, char *value, char **envp);
 /* Take the value of the env that you want if it exists */
 char	*ms_get_env(char *var, char **envp, int n);
@@ -85,4 +85,6 @@ void	*parse_ms(char *output, t_prompt *prompt);
 int		builtin(t_prompt *prompt, t_list *cmd, int	*terminate);
 /* Handling the exit of the program with a status code based on the arguments */
 int		ms_exit(t_list *cmd, int *terminate);
+/* Changes the currend working directory and update the related env vars */
+int		ms_cd(t_prompt *p);
 #endif
