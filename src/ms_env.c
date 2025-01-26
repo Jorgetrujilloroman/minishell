@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:57:37 by davigome          #+#    #+#             */
-/*   Updated: 2025/01/22 18:23:27 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/26 19:39:23 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	**ms_add_env(char *var, char *value, char **envp)
 {
 	int		count[2];
 	char	*temp[2];
-	
+
 	count[0] = -1;
 	temp[0] = ft_strjoin(var, "=");
 	temp[1] = ft_strjoin(temp[0], value);
@@ -82,4 +82,21 @@ char	*ms_get_env(char *var, char **envp, int n)
 			return (ft_substr(envp[i], aux + 1, ft_strlen(envp[i])));
 	}
 	return (NULL);
+}
+
+int	var_in_envp(char **argv, char **envp, int ij[2])
+{
+	int	pos;
+
+	ij[1] = 1;
+	pos = ft_strchr_i(argv, '=');
+	if (pos == -1)
+		return (-1);
+	while (envp[ij[1]])
+	{
+		if (!ft_strncmp(envp[ij[1]], argv, pos + 1))
+			return (1);
+		ij[1]++;
+	}
+	return (0);
 }

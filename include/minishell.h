@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/26 14:20:31 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/26 19:50:21 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ int		ms_strchr_pos(char *s, int c);
 void	if_sigint(int sig);
 /* Make substr from set to the next set string*/
 char	*strtrim(char const *s1, char const *set);
+/* Returns the index of an specific character inside a Sring.
+Returns -1 if not exist. */
+int		ft_strchr_i(const char *s, int c);
 
 // PARSE
 
@@ -78,6 +81,8 @@ char	*ms_get_prompt(t_prompt prompt);
 void	ms_get_exec(char ***out, char *full, char *args, char **envp);
 /* Execute the parse and executor */
 void	*parse_ms(char *output, t_prompt *prompt);
+/* Checks if an environment variable exists in envp */
+int		var_in_envp(char **argv, char **envp, int ij[2]);
 
 // EXECUTE
 
