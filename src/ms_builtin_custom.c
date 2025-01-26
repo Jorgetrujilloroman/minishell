@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:06:50 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/26 12:02:28 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/26 13:08:06 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ms_exit(t_list *cmd, int *terminate)
 	}
 	return (status);
 }
-
+// Update the env vars after doing a cd builtin
 static void	cd_update_env_vars(t_prompt *p, char *oldpwd)
 {
 	char	*newpwd;
