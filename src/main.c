@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/23 17:34:48 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:16:35 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,6 @@ int	main(int argc, char **argv, char **envp)
 			output = readline("guest@minishell $ ");
 		free(str);
 		if (!parse_ms(output, &prompt))
-			break;
+			break ;
 	}
 }

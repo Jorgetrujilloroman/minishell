@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_get_exec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 09:22:34 by davigome          #+#    #+#             */
-/*   Updated: 2025/01/22 15:22:37 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:16:00 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ms_update_output(char ***matrix, int fd)
 	{
 		read = get_next_line(fd);
 		if (!read)
-			break;
+			break ;
 		temp = strtrim(read, "\n");
 		free(read);
 		new = ms_add_end_env(new, temp);

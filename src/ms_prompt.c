@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_prompt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 08:34:57 by davigome          #+#    #+#             */
-/*   Updated: 2025/01/22 18:07:47 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:15:32 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*ms_get_user(t_prompt prompt)
 		user = ms_add_end_env(user, "guest");
 	temp = ft_strjoin(GREEN, *user);
 	ft_free_matrix(user);
-	return(temp);
+	return (temp);
 }
 
 static char	*ms_get_home(t_prompt prompt)
@@ -33,7 +33,7 @@ static char	*ms_get_home(t_prompt prompt)
 	char	*temp;
 	char	*pwd;
 	char	*home;
-	
+
 	pwd = getcwd(NULL, 0);
 	if (!pwd)
 		pwd = ft_strdup("no");
