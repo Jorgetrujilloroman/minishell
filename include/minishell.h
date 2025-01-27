@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/26 19:50:21 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:50:47 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ char	*ms_get_prompt(t_prompt prompt);
 void	ms_get_exec(char ***out, char *full, char *args, char **envp);
 /* Execute the parse and executor */
 void	*parse_ms(char *output, t_prompt *prompt);
-/* Checks if an environment variable exists in envp */
-int		var_in_envp(char **argv, char **envp, int ij[2]);
+/* Checks if an environment variable exists in envp. Returns 1 if exists */
+int		ms_var_in_envp(char **argv, char **envp, int ij[2]);
 
 // EXECUTE
 

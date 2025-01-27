@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 19:28:21 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/26 19:31:27 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:51:44 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,4 @@ char	*strtrim(char const *s1, char const *set)
 		return (ft_strdup(""));
 	len = j - i;
 	return (ft_substr(s1, i, len + 1));
-}
-
-
-int	ft_strchr_i(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-			return (i);
-		i++;
-	}
-	if (c == '\0')
-		return (i);
-	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:57:37 by davigome          #+#    #+#             */
-/*   Updated: 2025/01/26 19:39:23 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:51:37 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ char	*ms_get_env(char *var, char **envp, int n)
 	return (NULL);
 }
 
-int	var_in_envp(char **argv, char **envp, int ij[2])
+int	ms_var_in_envp(char **argv, char **envp, int ij[2])
 {
 	int	pos;
 
 	ij[1] = 1;
-	pos = ft_strchr_i(argv, '=');
+	pos = ms_strchr_pos(argv, '=');
 	if (pos == -1)
 		return (-1);
 	while (envp[ij[1]])
