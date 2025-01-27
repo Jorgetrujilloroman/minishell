@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/22 21:26:59 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:58:05 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	ft_ms_get_pid(t_prompt *prompt)
 	waitpid(pid, NULL, 0);
 	prompt->pid = pid - 1; // Posible restar 1 pero de momento no es necesario
 }
-/* Initialize the envs and create if doesn't exist */
 
+/* Initialize the envs and create if doesn't exist */
 static t_prompt	ms_init_envp(t_prompt prompt, char **argv)
 {
 	char	*str;
@@ -66,7 +66,6 @@ static t_prompt	ms_init_envp(t_prompt prompt, char **argv)
 
 /* This function initializes the prompt, copies the environment variables
 and gets the pid */
-
 static t_prompt	ft_start_ms(char **argv, char **envp)
 {
 	t_prompt	prompt;

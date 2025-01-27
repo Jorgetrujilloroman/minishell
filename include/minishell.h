@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/22 20:29:25 by davigome         ###   ########.fr       */
+/*   Updated: 2025/01/22 23:34:07 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,7 @@ void	ms_get_exec(char ***out, char *full, char *args, char **envp);
 void	*parse_ms(char *output, t_prompt *prompt);
 /* Separate the arguments from output in a matrix */
 char	**ms_trim(char const *s, char *set);
+/* End the parse and exec the output */
+void	*ms_parse_and_exec(char **output, t_prompt *prompt);
 
 #endif
