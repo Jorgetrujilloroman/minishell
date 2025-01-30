@@ -16,8 +16,8 @@ SRC			:=	main.c \
 				ms_prompt.c \
 				ms_parse.c \
 				ms_builtin.c \
-				ms_builtin_custom.c \
-				ms_builtin_custom_2.c \
+				ms_builtin_funcs.c \
+				ms_builtin_funcs_2.c \
 
 OBJ_DIR 	:= obj
 OBJ 		:= $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
