@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/27 12:50:47 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:39:54 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ char	*strtrim(char const *s1, char const *set);
 /* Returns the index of an specific character inside a Sring.
 Returns -1 if not exist. */
 int		ft_strchr_i(const char *s, int c);
+/* Replaces the n-th element in a matrix with elements from another matrix. */
+char	**ms_matrix_replace_n(char ***src, char **add, int n);
 
 // PARSE
 
@@ -94,4 +96,6 @@ int		ms_exit(t_list *cmd, int *terminate);
 int		ms_cd(t_prompt *p);
 /* Minishell implementation of export builtin */
 int		ms_export(t_prompt *p);
+/* Minishell implementation of unset builtin */
+int		ms_unset(t_prompt	*p);
 #endif

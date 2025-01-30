@@ -8,14 +8,16 @@ LIBFT		:= ./lib/libft/libft.a
 INCLUDE 	:= -I ./include
 
 SRC_DIR 	:= src
-SRC			:= main.c \
+SRC			:=	main.c \
 				ms_env.c \
 				ms_utils.c \
+				ms_utils_2.c \
 				ms_get_exec.c \
 				ms_prompt.c \
 				ms_parse.c \
 				ms_builtin.c \
 				ms_builtin_custom.c \
+				ms_builtin_custom_2.c \
 
 OBJ_DIR 	:= obj
 OBJ 		:= $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))

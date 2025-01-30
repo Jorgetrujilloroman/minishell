@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:51:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/26 14:20:39 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/28 12:26:14 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	init_builtins(t_builtin *builtins)
 {
 	builtins[0] = (t_builtin){"cd", ms_cd};
 	builtins[1] = (t_builtin){"export", ms_export};
-	//builtins[2] = (t_builtin){"unset", ms_unset};
+	builtins[2] = (t_builtin){"unset", ms_unset};
 	builtins[3] = (t_builtin){NULL, NULL};
 }
 
