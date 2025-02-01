@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 12:57:49 by davigome          #+#    #+#             */
-/*   Updated: 2025/01/22 21:25:01 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/01 11:27:27 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,21 @@ int	ms_strchr_pos(char *s, int c)
 	}
 	if (c_unsigned == '\0')
 		return (pos);
+	return (-1);
+}
+
+int	ms_strchars_pos(const char *s, char *search)
+{
+	int	i;
+	
+	i = -1;
+	if (!s)
+		return (-1);
+	while (s[++i] != '\0')
+	{
+		if (ft_strchr(search, s[i]))
+			return (i);
+	}
 	return (-1);
 }
 

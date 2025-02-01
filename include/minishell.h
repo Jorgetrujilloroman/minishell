@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/22 23:34:07 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/01 12:23:20 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,30 @@ char	*strtrim(char const *s1, char const *set);
 int		ms_count_strs(const char *s, char *c, int i[2]);
 /* Create a matrix from s separated with char set */
 char	**ms_separate_matrix(char **aux, char const *s, char *set, int i[3]);
+/* Return the position where some char from search is found in *s */
+int		ms_strchars_pos(const char *s, char *search);
+/* After trim we obtein vars, paths and separate <>| */
+char	**ms_split_output(char **output, t_prompt *prompt);
+/* Obtein the variable developed in $ */
+char	*ms_vars(char *str, int i, int j[2], t_prompt *prompt);
+/* inside ms_vars, substitute the variable if exists */
+char	*ms_get_sub_var(char *str, int i, t_prompt *prompt);
+/* Develops the path sent from home */
+char	*ms_paths(char *str, int i, int j[2], char *var);
+/* Separates if there is | or < or > out of "" */
+char	**ms_subsplit(char *output, char *set);
+/* Uses  the matrix from ms_subsplit to extend the original matrix*/
+char	**ft_matrix_replace_in(char ***big, char **small, int n);
+/* Create a list where all the information about the commands is saved in structs */
+t_list	*ms_nodes(char **args, int i);
+/* Eliminates "" and '' from the strings */
+char	**ms_clean_output(char **output);
+/* Initializes a t_command pointer to save the next command */
+t_command	*ms_command_init(void);
+/*  */
+t_command	*ms_params(t_command *node, char **temp[2], int *i);
+/*  */
+t_list	*ms_break_fill(t_list *cmds, char **args, char **temp);
 
 // PARSE
 /* Add the new str in the end of the matrix */
