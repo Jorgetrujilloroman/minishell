@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_prompt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 08:34:57 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/01 13:09:40 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/01 18:37:54 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static char	*ms_get_user(t_prompt prompt)
 		user = ms_add_end_env(user, "guest");
 	temp = ft_strjoin(GREEN, *user);
 	ft_free_matrix(user);
-	return (temp);
 	return (temp);
 }
 
