@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/30 17:39:54 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:45:52 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int		ms_var_in_envp(char **argv, char **envp, int ij[2]);
 // EXECUTE
 
 /* Runs over cmds and execute builtins. Execute the cmd if it isn't a builtin */
-int		builtin(t_prompt *prompt, t_list *cmd, int	*terminate);
+int		builtin_or_cmd(t_prompt *prompt, t_list *cmd, int	*terminate);
 /* Handling the exit of the program with a status code based on the arguments */
 int		ms_exit(t_list *cmd, int *terminate);
 /* Changes the currend working directory and update the related env vars */

@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:51:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/28 12:26:14 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:45:34 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	exec_builtin(t_prompt *prompt, t_list *cmd, int *terminate)
 	return (0);
 }
 
-int	builtin(t_prompt *prompt, t_list *cmd, int	*terminate)
+int	builtin_or_cmd(t_prompt *prompt, t_list *cmd, int	*terminate)
 {
 	while (cmd)
 	{
