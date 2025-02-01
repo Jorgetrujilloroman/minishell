@@ -18,6 +18,9 @@ SRC			:=	main.c \
 				ms_builtin.c \
 				ms_builtin_funcs.c \
 				ms_builtin_funcs_2.c \
+				ms_split_out.c \
+				ms_split_out_2.c \
+				ms_nodes.c \
 
 OBJ_DIR 	:= obj
 OBJ 		:= $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))

@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 09:22:34 by davigome          #+#    #+#             */
-/*   Updated: 2025/01/27 13:16:00 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:08:34 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	ms_update_output(char ***matrix, int fd)
 	{
 		read = get_next_line(fd);
 		if (!read)
+			break ;
 			break ;
 		temp = strtrim(read, "\n");
 		free(read);
