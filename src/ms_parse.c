@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:16:44 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/01 13:09:21 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:15:31 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ t_list	*ms_break_fill(t_list *cmds, char **args, char **temp)
 int	ms_get_fd(int oldfd, char *path, int flags[2])
 {
 	int	fd;
-	
+
 	if (oldfd > 2)
 		close(oldfd);
 	if (!path)

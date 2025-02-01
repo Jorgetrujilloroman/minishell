@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 19:28:21 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/30 14:41:16 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:16:47 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,34 @@ char	*strtrim(char const *s1, char const *set)
 		return (ft_strdup(""));
 	len = j - i;
 	return (ft_substr(s1, i, len + 1));
+}
+
+int		ms_count_strs(const char *s, char *c, int i[2])
+{
+	int	j[2];
+
+	j[0] = 0;
+	j[1] = 0;
+	while (s[i[0]] != '\0')
+	{
+		if (ft_strchr(c, s[i[0]]) == 0)
+		{
+			i[1]++;
+			while ((!ft_strchr(c, s[i[0]]) || j[0]) && s[i[0]] != '\0')
+			{
+				if (!j[1] && (s[i[0]] == '\"' || s[i[0]] == '\''))
+					j[1] = s[i[0]];
+				j[0] = (j[0] + (s[i[0]] == j[1])) % 2;
+				j[1] *= j[0] != 0;
+				i[0]++;
+			}
+			if (j[0])
+				return (-1);
+		}
+		else
+			i[0]++;
+	}
+	return (i[1]);
 }
 
 char	**ms_matrix_replace_n(char ***src, char **add, int n)

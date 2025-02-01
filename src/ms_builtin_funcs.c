@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ms_builtin_custom.c                                :+:      :+:    :+:   */
+/*   ms_builtin_funcs.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:06:50 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/27 12:53:33 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:20:33 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static void	export_update_envp(t_prompt *p, char **argv)
 	ij[0] = 1;
 	while (argv[ij[0]])
 	{
-		pos = var_in_envp(argv[ij[0]], p->envp, ij);
+		pos = ms_var_in_envp(argv[ij[0]], p->envp, ij);
 		if (pos == 1)
 		{
 			free(p->envp[ij[1]]);

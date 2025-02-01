@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/01 13:06:46 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:15:25 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <sys/wait.h>
 # include <signal.h>
 # include <sys/ioctl.h>
+# include <fcntl.h>
 
 //COLORS
 # define DEFAULT "\001\033[0;39m\002"
