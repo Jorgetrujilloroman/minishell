@@ -12,6 +12,7 @@ SRC			:=	main.c \
 				ms_env.c \
 				ms_utils.c \
 				ms_utils_2.c \
+				ms_utils_3.c \
 				ms_get_exec.c \
 				ms_prompt.c \
 				ms_parse.c \
@@ -21,6 +22,9 @@ SRC			:=	main.c \
 				ms_split_out.c \
 				ms_split_out_2.c \
 				ms_nodes.c \
+				ms_here_doc.c \
+				ms_params.c \
+				
 
 OBJ_DIR 	:= obj
 OBJ 		:= $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))

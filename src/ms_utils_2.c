@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ms_utils_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 19:28:21 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/01 13:16:47 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:15:17 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-extern int g_status;
+extern int	g_status;
 
 void	if_sigint(int sig)
 {
@@ -36,7 +36,7 @@ char	*strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1);
 	i = 0;
 	j = len -1;
-	while (i<= len / 2 && ft_strchr(set, s1[i]) != NULL)
+	while (i <= len / 2 && ft_strchr(set, s1[i]) != NULL)
 		i++;
 	while (j >= len / 2 && ft_strchr(set, s1[j]) != NULL)
 		j--;
@@ -46,7 +46,7 @@ char	*strtrim(char const *s1, char const *set)
 	return (ft_substr(s1, i, len + 1));
 }
 
-int		ms_count_strs(const char *s, char *c, int i[2])
+int	ms_count_strs(const char *s, char *c, int i[2])
 {
 	int	j[2];
 
@@ -101,3 +101,17 @@ char	**ms_matrix_replace_n(char ***src, char **add, int n)
 	return (*src);
 }
 
+int	ms_strchars_pos(const char *s, char *search)
+{
+	int	i;
+
+	i = -1;
+	if (!s)
+		return (-1);
+	while (s[++i] != '\0')
+	{
+		if (ft_strchr(search, s[i]))
+			return (i);
+	}
+	return (-1);
+}

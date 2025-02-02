@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/01 18:41:46 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:01:25 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	ft_ms_get_pid(t_prompt *prompt)
 		exit(1);
 	}
 	waitpid(pid, NULL, 0);
-	prompt->pid = pid; // Posible restar 1 pero de momento no es necesario
+	prompt->pid = pid;
 }
 
 /* Initialize the envs and create if doesn't exist */

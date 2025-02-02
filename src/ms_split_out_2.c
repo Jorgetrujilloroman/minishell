@@ -6,13 +6,35 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 12:03:26 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/01 12:04:24 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:21:28 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
 extern int	g_status;
+
+void	ms_clean(void *n)
+{
+	t_command	*node;
+
+	node = n;
+	ft_free_matrix(node->full_cmd);
+	free(node->full_path);
+	if (node->infile != STDIN_FILENO)
+		close(node->infile);
+	if (node->outfile != STDOUT_FILENO)
+		close(node->outfile);
+	free(node);
+}
+
+t_list	*ms_break_fill(t_list *cmds, char **args, char **temp)
+{
+	ft_lstclear(&cmds, ms_clean);
+	ft_free_matrix(temp);
+	ft_free_matrix(args);
+	return (NULL);
+}
 
 char	**ms_extend_array(char	**result, char *output, char *set, int i[3])
 {
@@ -25,7 +47,8 @@ char	**ms_extend_array(char	**result, char *output, char *set, int i[3])
 		i[1] = i[0];
 		if (!ft_strchr(set, output[i[0]]))
 		{
-			while ((!ft_strchr(set, output[i[0]]) || q[0] || q[1]) && output[i[0]])
+			while ((!ft_strchr(set, output[i[0]]) || q[0] \
+				|| q[1]) && output[i[0]])
 			{
 				q[0] = (q[0] + (!q[1] && output[i[0]] == '\'')) % 2;
 				q[1] = (q[1] + (!q[0] && output[i[0]] == '\"')) % 2;
@@ -36,7 +59,7 @@ char	**ms_extend_array(char	**result, char *output, char *set, int i[3])
 			i[0]++;
 		result[i[2]++] = ft_substr(output, i[1], i[0] - i[1]);
 	}
-	return (result);	
+	return (result);
 }
 
 static int	ft_count_words(char *s, char *set, int count)
@@ -72,7 +95,6 @@ char	**ms_subsplit(char *output, char *set)
 	char	**result;
 	int		n_strs;
 	int		i[3];
-/* 	int		j[2]; */
 
 	i[0] = 0;
 	i[1] = 0;

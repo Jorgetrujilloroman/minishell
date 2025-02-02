@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 12:57:49 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/01 13:17:11 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:12:28 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	ms_strchr_pos(char *s, int c)
 	int				pos;
 	unsigned char	c_unsigned;
 
-
 	pos = -1;
 	if (!s)
 		return (-1);
@@ -84,46 +83,4 @@ int	ms_strchr_pos(char *s, int c)
 	if (c_unsigned == '\0')
 		return (pos);
 	return (-1);
-}
-
-int	ms_strchars_pos(const char *s, char *search)
-{
-	int	i;
-
-	i = -1;
-	if (!s)
-		return (-1);
-	while (s[++i] != '\0')
-	{
-		if (ft_strchr(search, s[i]))
-			return (i);
-	}
-	return (-1);
-}
-
-char	**ms_separate_matrix(char **aux, char const *s, char *set, int i[3])
-{
-	int	len;
-	int	j[2];
-
-	len = ft_strlen(s);
-	j[0] = 0;
-	j[1] = 0;
-	while (s[i[0]])
-	{
-		while (ft_strchr(set, s[i[0]]) && s[i[0]] != '\0')
-			i[0]++;
-		i[1] = i[0];
-		while ((!ft_strchr(set, s[i[0]]) || j[0] || j[1]) && s[i[0]])
-		{
-			j[0] = (j[0] + (!j[1] && s[i[0]] == '\'')) % 2;
-			j[1] = (j[1] + (!j[0] && s[i[0]] == '\"')) % 2;
-			i[0]++;
-		}
-		if (i[1] >= len)
-			aux[i[2]++] = "\0";
-		else
-			aux[i[2]++] = ft_substr(s, i[1], i[0] - i[1]);
-	}
-	return (aux);
 }

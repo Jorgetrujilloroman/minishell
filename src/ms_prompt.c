@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 08:34:57 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/01 18:37:54 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:24:25 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static char	*ms_get_home(t_prompt prompt)
 	char	*temp;
 	char	*pwd;
 	char	*home;
-
 
 	pwd = getcwd(NULL, 0);
 	if (!pwd)

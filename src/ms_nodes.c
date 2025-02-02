@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 12:08:03 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/01 12:22:39 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:26:41 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ char	**ms_clean_output(char **output)
 	i = -1;
 	temp = malloc(sizeof(char *) * (ft_size_matrix(output) + 1));
 	temp[ft_size_matrix(output)] = NULL;
-	while(output && output[++i])
+	while (output && output[++i])
 	{
-		if ((output[i][0] == '\'' &&\
+		if ((output[i][0] == '\'' && \
 			output[i][ft_strlen(output[i]) - 1] == '\'')
-			|| (output[i][0] == '\"' &&\
+			|| (output[i][0] == '\"' && \
 			output[i][ft_strlen(output[i]) - 1] == '\"'))
 			temp[i] = ft_substr(output[i], 1, ft_strlen(output[i]) - 2);
 		else
@@ -71,7 +71,7 @@ t_list	*ms_nodes(char **args, int i)
 		if (i < 0)
 			return (ms_break_fill(cmds[0], args, aux[1]));
 		if (!args[i])
-			break;
+			break ;
 	}
 	ft_free_matrix(args);
 	ft_free_matrix(aux[1]);

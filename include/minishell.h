@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/01 13:15:25 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/02 17:17:13 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,33 +70,12 @@ int			ms_count_strs(const char *s, char *c, int i[2]);
 char		**ms_separate_matrix(char **aux, char const *s, char *set, int i[3]);
 /* Return the position where some char from search is found in *s */
 int			ms_strchars_pos(const char *s, char *search);
-/* After trim we obtein vars, paths and separate <>| */
-char		**ms_split_output(char **output, t_prompt *prompt);
-/* Obtein the variable developed in $ */
-char		*ms_vars(char *str, int i, int j[2], t_prompt *prompt);
-/* inside ms_vars, substitute the variable if exists */
-char		*ms_get_sub_var(char *str, int i, t_prompt *prompt);
-/* Develops the path sent from home */
-char		*ms_paths(char *str, int i, int j[2], char *var);
-/* Separates if there is | or < or > out of "" */
-char		**ms_subsplit(char *output, char *set);
-/* Uses  the matrix from ms_subsplit to extend the original matrix*/
-char		**ft_matrix_replace_in(char ***big, char **small, int n);
-/* Create a list where all commands' information is saved in structs */
-t_list		*ms_nodes(char **args, int i);
-/* Eliminates "" and '' from the strings */
-char		**ms_clean_output(char **output);
-/* Initializes a t_command pointer to save the next command */
-t_command	*ms_command_init(void);
-/*  */
-t_command	*ms_params(t_command *node, char **temp[2], int *i);
-/*  */
-t_list		*ms_break_fill(t_list *cmds, char **args, char **temp);
 /* Returns the index of an specific character inside a Sring.
 Returns -1 if not exist. */
 int			ft_strchr_i(const char *s, int c);
 /* Replaces the n-th element in a matrix with elements from another matrix. */
 char		**ms_matrix_replace_n(char ***src, char **add, int n);
+
 
 // PARSE
 
@@ -118,6 +97,45 @@ char		**ms_trim(char const *s, char *set);
 void		*ms_parse_and_exec(char **output, t_prompt *prompt);
 /* Checks if an environment variable exists in envp. Returns 1 if exists */
 int			ms_var_in_envp(char **argv, char **envp, int ij[2]);
+/* After trim we obtein vars, paths and separate <>| */
+char		**ms_split_output(char **output, t_prompt *prompt);
+/* Obtein the variable developed in $ */
+char		*ms_vars(char *str, int i, int j[2], t_prompt *prompt);
+/* inside ms_vars, substitute the variable if exists */
+char		*ms_get_sub_var(char *str, int i, t_prompt *prompt);
+/* Develops the path sent from home */
+char		*ms_paths(char *str, int i, int j[2], char *var);
+/* Separates if there is | or < or > out of "" */
+char		**ms_subsplit(char *output, char *set);
+/* Uses  the matrix from ms_subsplit to extend the original matrix*/
+char		**ft_matrix_replace_in(char ***big, char **small, int n);
+/* Create a list where all commands' information is saved in structs */
+t_list		*ms_nodes(char **args, int i);
+/* Eliminates "" and '' from the strings */
+char		**ms_clean_output(char **output);
+/* Initializes a t_command pointer to save the next command */
+t_command	*ms_command_init(void);
+/* Fill or create the infile and outfile. And fill the full command */
+t_command	*ms_params(t_command *node, char **temp[2], int *i);
+/* If there is bad input filling the nodes, free everything */
+t_list		*ms_break_fill(t_list *cmds, char **args, char **temp);
+/* Function to clean the nodes list */
+void		ms_clean(void *n);
+/* Read each line for here_doc */
+char		*ms_get_str(char *str[2], size_t len, char *limit, char *warn);
+/* Do here do for << */
+int			ms_here_doc(char *str[2], char *aux[2]);
+/* By flags it choose >>, < or > */
+int			ms_get_fd(int oldfd, char *path, int flags[2]);
+/* when there is >> open and send fd to infile for >> conditions*/
+t_command	*ms_out_2(t_command *node, char **args, int *i);
+/* when there is > open and send fd to infile for > conditions */
+t_command	*ms_out_1(t_command *node, char **args, int *i);
+/* when there is < open and send fd to infile for < conditions */
+t_command	*ms_in_1(t_command *node, char **args, int *i);
+/* when << and it uses here_doc */
+t_command	*ms_in_2(t_command *node, char **args, int *i);
+
 
 // EXECUTE
 
