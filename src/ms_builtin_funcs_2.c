@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:26:54 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/03 18:15:04 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:43:56 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ms_unset(t_prompt	*p)
 	char	**argv;
 	char	*aux;
 	int		i;
-	int		index;
+	int		index[2];
 
 	i = 1;
 	argv = ((t_command *)p->cmds->content)->full_cmd;
@@ -33,8 +33,8 @@ int	ms_unset(t_prompt	*p)
 			free(argv[i]);
 			argv[i] = aux;
 		}
-		if (ms_var_in_envp(argv[i], p->envp, &index))
-			ms_matrix_replace_n(&p->envp, NULL, index);
+		if (ms_var_in_envp(argv[i], p->envp, index))
+			ms_matrix_replace_n(&p->envp, NULL, index[1]);
 		i++;
 	}
 	return (0);

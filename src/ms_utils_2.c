@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_utils_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 19:28:21 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/02 08:15:17 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:03:13 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,10 @@ char	**ms_matrix_replace_n(char ***src, char **add, int n)
 				tmp[ijk[2]++] = ft_strdup(add[ijk[1]++]);
 		}
 		else
-			tmp[++ijk[2]] = ft_strdup(src[0][ijk[0]]);
+			tmp[ijk[2]++] = ft_strdup(src[0][ijk[0]]);
 		ijk[0]++;
 	}
-	ft_free_matrix(src);
+	ft_free_matrix(*src);
 	*src = tmp;
 	return (*src);
 }
