@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/02 17:17:13 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:20:26 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ char		*strtrim(char const *s1, char const *set);
 /* Count how many str there are in the output separated with c character */
 int			ms_count_strs(const char *s, char *c, int i[2]);
 /* Create a matrix from s separated with char set */
-char		**ms_separate_matrix(char **aux, char const *s, char *set, int i[3]);
+char		**ms_separate_matrix(char **aux, char const *s,
+				char *set, int i[3]);
 /* Return the position where some char from search is found in *s */
 int			ms_strchars_pos(const char *s, char *search);
 /* Returns the index of an specific character inside a Sring.
@@ -75,7 +76,6 @@ Returns -1 if not exist. */
 int			ft_strchr_i(const char *s, int c);
 /* Replaces the n-th element in a matrix with elements from another matrix. */
 char		**ms_matrix_replace_n(char ***src, char **add, int n);
-
 
 // PARSE
 
@@ -135,7 +135,6 @@ t_command	*ms_out_1(t_command *node, char **args, int *i);
 t_command	*ms_in_1(t_command *node, char **args, int *i);
 /* when << and it uses here_doc */
 t_command	*ms_in_2(t_command *node, char **args, int *i);
-
 
 // EXECUTE
 
