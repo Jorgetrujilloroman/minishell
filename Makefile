@@ -1,7 +1,7 @@
 PROJECT 	:= minishell 
 CC 			:= gcc
 
-CFLAGS		:= #-Wextra -Wall -Werror -g #-fsanitize=address
+CFLAGS		:= -g #-Wextra -Wall -Werror -g #-fsanitize=address
 LDFLAGS     := -lreadline
 
 LIBFT		:= ./lib/libft/libft.a

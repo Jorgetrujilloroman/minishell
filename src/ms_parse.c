@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:16:44 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/03 15:02:54 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:05:06 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,17 @@ t_command	*ms_params(t_command *node, char **temp[2], int *i)
 
 void	*ms_parse_and_exec(char **output, t_prompt *prompt)
 {
+	int	terminate;
+
+	terminate = 0;
 	output = ms_split_output(output, prompt);
 	prompt->cmds = ms_nodes(output, -1);
-	g_status = builtin_or_cmd(prompt, prompt->cmds, 0);
+	g_status = builtin_or_cmd(prompt, prompt->cmds, &terminate);
+	if (output && terminate)
+	{
+		ft_lstclear(&prompt->cmds, ms_clean);
+		return (NULL);
+	}
 	return (prompt);
 }
 

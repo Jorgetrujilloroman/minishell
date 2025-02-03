@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ms_builtin_custom_2.c                              :+:      :+:    :+:   */
+/*   ms_builtin_funcs_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:26:54 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/01/30 14:50:19 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:15:04 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ms_unset(t_prompt	*p)
 
 	i = 1;
 	argv = ((t_command *)p->cmds->content)->full_cmd;
-	if (ft_strlen(argv) < 2)
+	if (ft_size_matrix(argv) < 2)
 		return (0);
 	while (argv[i])
 	{
