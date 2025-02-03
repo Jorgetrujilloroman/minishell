@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/03 18:48:20 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:48:03 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char		*ms_get_prompt(t_prompt prompt);
 /* Executes a command and saves output to string ending in \n */
 void		ms_get_exec(char ***out, char *full, char *args, char **envp);
 /* Execute the parse and executor */
-void		*parse_ms(char *output, t_prompt *prompt);
+void		*ms_parse(char *output, t_prompt *p);
 /* Separate the arguments from output in a matrix */
 char		**ms_trim(char const *s, char *set);
 /* End the parse and exec the output */

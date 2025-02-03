@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/02 08:01:25 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:49:25 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	main(int argc, char **argv, char **envp)
 		else
 			output = readline("guest@minishell $ ");
 		free(str);
-		if (!parse_ms(output, &prompt))
+		if (!ms_parse(output, &prompt))
 			break ;
 	}
 }

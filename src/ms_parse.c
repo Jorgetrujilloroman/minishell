@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:16:44 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/03 18:35:53 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:48:50 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,10 @@ void	*ms_parse_and_exec(char **output, t_prompt *prompt)
 	return (prompt);
 }
 
-void	*parse_ms(char *output, t_prompt *prompt)
+void	*ms_parse(char *output, t_prompt *p)
 {
 	char		**aux;
+	t_command	*t;
 
 	if (!output)
 	{
@@ -127,6 +128,13 @@ void	*parse_ms(char *output, t_prompt *prompt)
 		ft_put_error("Minishell could not trim the output");
 	if (!aux)
 		return ("");
-	prompt = ms_parse_and_exec(aux, prompt);
-	return (prompt);
+	p = ms_parse_and_exec(aux, p);
+	if (p && p->cmds)
+		t = p->cmds->content;
+	if (p && p->cmds && t && t->full_cmd && ft_lstsize(p->cmds) == 1)
+		p->envp = ms_add_env("_", t->full_cmd[ft_size_matrix(t->full_cmd) - 1], \
+			p->envp);
+	if (p && p->cmds)
+		ft_lstclear(&p->cmds, ms_clean);
+	return (p);
 }
