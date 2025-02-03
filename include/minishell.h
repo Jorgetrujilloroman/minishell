@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/03 19:48:03 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:06:10 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char		**ms_trim(char const *s, char *set);
 /* End the parse and exec the output */
 void		*ms_parse_and_exec(char **output, t_prompt *prompt);
 /* Checks if an environment variable exists in envp. Returns 1 if exists */
-int			ms_var_in_envp(char **argv, char **envp, int ij[2]);
+int			ms_var_in_envp(char *argv, char **envp, int ij[2]);
 /* After trim we obtein vars, paths and separate <>| */
 char		**ms_split_output(char **output, t_prompt *prompt);
 /* Obtein the variable developed in $ */

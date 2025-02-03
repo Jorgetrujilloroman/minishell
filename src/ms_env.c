@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:57:37 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/03 15:08:51 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:06:04 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*ms_get_env(char *var, char **envp, int n)
 	return (NULL);
 }
 
-int	ms_var_in_envp(char **argv, char **envp, int ij[2])
+int	ms_var_in_envp(char *argv, char **envp, int ij[2])
 {
 	int	pos;
 
