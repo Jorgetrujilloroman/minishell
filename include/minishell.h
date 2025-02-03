@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/03 12:20:26 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:59:28 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # define DEFAULT "\001\033[0;39m\002"
 # define ORANGE "\001\033[1;38;5;208m\002"
 # define GREEN  "\001\033[1;32m\002"
-# define GREEN_OLIVE "\001\033[1;38;5;100m\002" // Definir el color verde oliva
 
 typedef struct s_prompt
 {

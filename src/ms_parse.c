@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:16:44 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/02 08:04:30 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:02:54 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	*ms_parse_and_exec(char **output, t_prompt *prompt)
 {
 	output = ms_split_output(output, prompt);
 	prompt->cmds = ms_nodes(output, -1);
+	g_status = builtin_or_cmd(prompt, prompt->cmds, 0);
 	return (prompt);
 }
 
