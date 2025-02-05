@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 12:57:49 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/02 08:12:28 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:29:19 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,18 @@ void	ft_put_error(char *s)
 	write(2, s, ft_strlen(s));
 }
 
-int	ms_strchr_pos(char *s, int c)
+int	ms_strchr_pos(const char *s, int c)
 {
-	int				pos;
-	unsigned char	c_unsigned;
+	int	i;
 
-	pos = -1;
-	if (!s)
-		return (-1);
-	c_unsigned = (unsigned char)c;
-	while (s[++pos] != '\0')
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (s[pos] == c_unsigned)
-			return (pos);
+		if (s[i] == c)
+			return (i);
+		i++;
 	}
-	if (c_unsigned == '\0')
-		return (pos);
+	if (c == '\0')
+		return (i);
 	return (-1);
 }

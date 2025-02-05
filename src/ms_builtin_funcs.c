@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:06:50 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/03 17:53:16 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:21:40 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static void	export_update_envp(t_prompt *p, char **argv)
 			free(p->envp[ij[1]]);
 			p->envp[ij[1]] = ft_strdup(argv[ij[0]]);
 		}
-		else if (!pos)
+		else if (!pos && argv[ij[0]] && *argv[ij[0]])
 			p->envp = ms_add_end_env(p->envp, argv[ij[0]]);
 		ij[0]++;
 	}
@@ -116,8 +116,9 @@ int	ms_export(t_prompt *p)
 		i = 0;
 		while (p->envp[i])
 			printf("declare -x %s\n", p->envp[i++]);
+		return (0);
 	}
-	else
+	else if (ft_size_matrix(argv) >= 2)
 		export_update_envp(p, argv);
 	return (0);
 }

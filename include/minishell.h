@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/03 20:06:10 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:28:48 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		ft_free_matrix(char **matrix);
 /* Write the error in the error console */
 void		ft_put_error(char *s);
 /* Return the position where the character sent is found */
-int			ms_strchr_pos(char *s, int c);
+int			ms_strchr_pos(const char *s, int c);
 /* Handle when the input is a Ctrl+C signal */
 void		if_sigint(int sig);
 /* Make substr from set to the next set string*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:57:37 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/03 20:06:04 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:34:08 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,23 @@ char	**ms_add_end_env(char	**matrix, char *new)
 	int		len;
 	int		i;
 
-	i = -1;
-	new_matrix = NULL;
-	if (!new)
+	if (!new || !*new)
 		return (matrix);
 	len = ft_size_matrix(matrix);
 	new_matrix = malloc(sizeof(char *) * (len + 2));
-	new_matrix[len + 1] = NULL;
 	if (!new_matrix)
 		return (matrix);
-	while (++i < len)
+	new_matrix[len + 1] = NULL;
+	i = 0;
+	while (i < len)
 	{
 		new_matrix[i] = ft_strdup(matrix[i]);
 		if (!new_matrix[i])
 		{
 			ft_free_matrix(new_matrix);
-			ft_free_matrix(matrix);
+			return (matrix);
 		}
+		i++;
 	}
 	new_matrix[i] = ft_strdup(new);
 	ft_free_matrix(matrix);
@@ -88,10 +88,10 @@ int	ms_var_in_envp(char *argv, char **envp, int ij[2])
 {
 	int	pos;
 
-	ij[1] = 1;
+	ij[1] = 0;
 	pos = ms_strchr_pos(argv, '=');
 	if (pos == -1)
-		return (-1);
+		return (0);
 	while (envp[ij[1]])
 	{
 		if (!ft_strncmp(envp[ij[1]], argv, pos + 1))
