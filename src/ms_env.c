@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:57:37 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/05 13:17:27 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/08 20:04:20 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	ms_var_in_envp(char *argv, char **envp, int ij[2])
 {
 	int	pos;
 
-	ij[1] = 1;
+	ij[1] = 0;
 	pos = ms_strchr_pos(argv, '=');
 	if (pos == -1)
 		return (-1);
