@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 19:28:21 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/03 19:03:13 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/08 21:10:46 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,18 @@ extern int	g_status;
 
 void	if_sigint(int sig)
 {
+	struct termios	term;
+
 	if (sig == SIGINT)
 	{
 		g_status = 130;
-		ioctl(STDIN_FILENO, TIOCSTI, "\n");
+		tcgetattr(STDIN_FILENO, &term);
+		term.c_lflag &= ~ECHOCTL;
+		tcsetattr(STDIN_FILENO, TCSANOW, &term);
+		write(STDIN_FILENO, "\n", 1);
 		rl_replace_line("", 0);
 		rl_on_new_line();
+		rl_redisplay();
 	}
 }
 

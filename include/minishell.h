@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/05 11:28:48 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/08 21:11:03 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <signal.h>
 # include <sys/ioctl.h>
 # include <fcntl.h>
+# include <unistd.h>
+# include <termios.h>
 
 //COLORS
 # define DEFAULT "\001\033[0;39m\002"
