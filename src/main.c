@@ -3,16 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/03 19:49:25 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:21:25 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
 int	g_status;
+
+static void	print_ascii_init(void)
+{
+	printf("                         ______                     \n");
+	printf(" _________        .---\"\"\"      \"\"\"---.        \n");
+	printf(":______.-':      :  .--------------.  :             \n");
+	printf("| ______  |      | :                : |             \n");
+	printf("|:______B:|      | |   " ORANGE "Minishell" DEFAULT ":   | |\n");
+	printf("|:______B:|      | |                | |             \n");
+	printf("|:______B:|      | |  * " GREEN "jotrujil" DEFAULT " *  | |\n");
+	printf("|         |      | |                | |             \n");
+	printf("|:_____:  |      | |  * " GREEN "davigome" DEFAULT " *  | |\n");
+	printf("|    ==   |      | :                : |             \n");
+	printf("|       O |      :  '--------------'  :             \n");
+	printf("|       o |      :'---...______...---'              \n");
+	printf("|       o |-._.-i___/'             \\._             \n");
+	printf("|'-.____o_|   '-.   '-...______...-'  `-._          \n");
+	printf(":_________:      `._______________________`-.____.-. \n");
+	printf("                 .'.  q w e r t y u i o p  .'.  :___:\n");
+	printf("               .'.    a s d f g h j k l ñ  .'.        \n");
+	printf("              .'.       z x c v b n m       .'.       \n");
+	printf("             .:__________|________|___________:.       \n");
+	printf("                                                    \n");
+}
 
 /* Get pid to minishell process */
 static void	ft_ms_get_pid(t_prompt *prompt)
@@ -84,6 +108,7 @@ int	main(int argc, char **argv, char **envp)
 	char		*output;
 	char		*str;
 
+	print_ascii_init();
 	prompt = ft_start_ms(argv, envp);
 	while (argc && argv)
 	{
