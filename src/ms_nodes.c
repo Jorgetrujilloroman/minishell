@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_nodes.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 12:08:03 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/02 08:26:41 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:57:33 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_command	*ms_command_init(void)
 		return (NULL);
 	command->full_cmd = NULL;
 	command->full_path = NULL;
-	command->infile = STDIN_FILENO;
-	command->outfile = STDOUT_FILENO;
+	command->in_file = STDIN_FILENO;
+	command->out_file = STDOUT_FILENO;
 	return (command);
 }
 

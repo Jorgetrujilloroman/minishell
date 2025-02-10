@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:51:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/01 13:17:49 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/10 13:19:14 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	builtin_or_cmd(t_prompt *prompt, t_list *cmd, int	*terminate)
 		{
 			signal(SIGINT, SIG_IGN);
 			signal(SIGQUIT, SIG_IGN);
-			//exec_cmd(prompt, cmd); //todo
+			exec_cmd(prompt, cmd); //todo
 		}
 		cmd = cmd->next;
 	}

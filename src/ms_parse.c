@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:16:44 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/03 19:48:50 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:19:20 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ t_command	*ms_params(t_command *node, char **temp[2], int *i)
 			node->full_cmd = ms_add_end_env(node->full_cmd, temp[1][*i]);
 		else
 		{
-			ft_put_error("Minishell: syntax error near unexpected token `|'\n");
+			ms_handle_error("Minishell: syntax error near `|'\n", NULL, 1);
 			*i = -2;
 		}
 		return (node);
 	}
-	ft_put_error("Minishell: syntax error near unexpected token `|'\n");
+	ms_handle_error("Minishell: syntax error near `|'\n", NULL, 1);
 	*i = -2;
 	return (node);
 }
@@ -125,7 +125,7 @@ void	*ms_parse(char *output, t_prompt *p)
 	aux = ms_trim(output, " ");
 	free(output);
 	if (!aux)
-		ft_put_error("Minishell could not trim the output");
+		ms_handle_error("Minishell could not trim the output", NULL, 1);
 	if (!aux)
 		return ("");
 	p = ms_parse_and_exec(aux, p);

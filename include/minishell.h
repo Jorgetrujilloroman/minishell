@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/08 21:11:03 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:09:46 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@
 # define ORANGE "\001\033[1;38;5;208m\002"
 # define GREEN  "\001\033[1;32m\002"
 
+# define PIPE_READ_END 0
+# define PIPE_WRITE_END 1
+
 typedef struct s_prompt
 {
 	t_list	*cmds;
@@ -40,8 +43,8 @@ typedef struct s_command
 {
 	char	**full_cmd;
 	char	*full_path;
-	int		infile;
-	int		outfile;
+	int		in_file;
+	int		out_file;
 }	t_command;
 
 typedef struct s_builtin
@@ -58,7 +61,7 @@ int			ft_size_matrix(char **matrix);
 char		**ft_dup_matrix(char **envp);
 void		ft_free_matrix(char **matrix);
 /* Write the error in the error console */
-void		ft_put_error(char *s);
+void		*ms_handle_error(char *error, char *param, int g_status_error);
 /* Return the position where the character sent is found */
 int			ms_strchr_pos(const char *s, int c);
 /* Handle when the input is a Ctrl+C signal */
@@ -149,4 +152,6 @@ int			ms_cd(t_prompt *p);
 int			ms_export(t_prompt *p);
 /* Minishell implementation of unset builtin */
 int			ms_unset(t_prompt	*p);
+/* Executes a command in a child process with pipes, ensuring file handling.*/
+void		*exec_cmd(t_prompt *prompt, t_list *cmd);
 #endif

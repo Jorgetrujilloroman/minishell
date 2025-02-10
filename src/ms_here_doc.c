@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_here_doc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:52:03 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/02 08:24:02 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:11:46 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ms_here_doc(char *str[2], char *aux[2])
 	g_status = 0;
 	if (pipe(fd) == -1)
 	{
-		ft_put_error("Minishell: error creating pipe\n");
+		ms_handle_error("Minishell: error creating pipe\n", NULL, 1);
 		return (-1);
 	}
 	str[1] = ms_get_str(str, 0, aux[0], aux[1]);

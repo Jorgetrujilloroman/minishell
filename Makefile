@@ -24,6 +24,7 @@ SRC			:=	main.c \
 				ms_nodes.c \
 				ms_here_doc.c \
 				ms_params.c \
+				ms_cmd.c \
 				
 
 OBJ_DIR 	:= obj

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_split_out_2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 12:03:26 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/02 08:21:28 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:56:29 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	ms_clean(void *n)
 	node = n;
 	ft_free_matrix(node->full_cmd);
 	free(node->full_path);
-	if (node->infile != STDIN_FILENO)
-		close(node->infile);
-	if (node->outfile != STDOUT_FILENO)
-		close(node->outfile);
+	if (node->in_file != STDIN_FILENO)
+		close(node->in_file);
+	if (node->out_file != STDOUT_FILENO)
+		close(node->out_file);
 	free(node);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/08 20:10:10 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:11:24 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	ft_ms_get_pid(t_prompt *prompt)
 	pid = fork();
 	if (pid < 0)
 	{
-		ft_put_error("Minishell fork failed\n");
+		ms_handle_error("Minishell fork failed\n", NULL, 1);
 		ft_free_matrix(prompt->envp);
 		exit(1);
 	}

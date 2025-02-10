@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 12:57:49 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/05 11:29:19 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:15:59 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,13 @@ char	**ft_dup_matrix(char **envp)
 	return (cpy);
 }
 
-void	ft_put_error(char *s)
+void	*ms_handle_error(char *error, char *param, int g_status_error)
 {
-	write(2, s, ft_strlen(s));
+	g_status = g_status_error;
+	ft_putstr_fd(error, 2);
+	if (param != NULL)
+		ft_putendl_fd(param, 2); //pending to be fixed to check if not NULL
+	return (NULL);
 }
 
 int	ms_strchr_pos(const char *s, int c)

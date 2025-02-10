@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_params.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:56:25 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/02 08:22:23 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:22:14 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int	ms_get_fd(int oldfd, char *path, int flags[2])
 	if (!path)
 		return (-1);
 	if (access(path, F_OK) == -1 && !flags[0])
-		ft_put_error("Minishell: No such file or directory\n");
+		ms_handle_error("Minishell: No such file or directory\n", path, 127);
 	else if (!flags[0] && access(path, R_OK) == -1)
-		ft_put_error("Minishell: permission denied: \n");
+		ms_handle_error("Minishell: permission denied: ", path, 126);
 	else if (flags[0] && access(path, W_OK) == -1 && access(path, F_OK) == 0)
-		ft_put_error("Minishell: permission denied: \n");
+		ms_handle_error("Minishell: permission denied: ", path, 126);
 	if (flags[0] && flags[1])
 		fd = open(path, O_CREAT | O_WRONLY | O_APPEND, 0666);
 	else if (flags[0] && !flags[1])
@@ -49,11 +49,11 @@ t_command	*ms_out_2(t_command *node, char **args, int *i)
 	line = "Minishell : unexpected token 'newline'";
 	++(*i);
 	if (args[++(*i)])
-		node->outfile = ms_get_fd(node->outfile, args[*i], flags);
-	if (!args[*i] || node->outfile == -1)
+		node->out_file = ms_get_fd(node->out_file, args[*i], flags);
+	if (!args[*i] || node->out_file == -1)
 	{
 		*i = -1;
-		if (node->outfile != -1)
+		if (node->out_file != -1)
 		{
 			ft_putendl_fd(line, 2);
 			g_status = 2;
@@ -74,11 +74,11 @@ t_command	*ms_out_1(t_command *node, char **args, int *i)
 	line = "Minishell : unexpected token 'newline'";
 	++(*i);
 	if (args[++(*i)])
-		node->outfile = ms_get_fd(node->outfile, args[*i], flags);
-	if (!args[*i] || node->outfile == -1)
+		node->out_file = ms_get_fd(node->out_file, args[*i], flags);
+	if (!args[*i] || node->out_file == -1)
 	{
 		*i = -1;
-		if (node->outfile != -1)
+		if (node->out_file != -1)
 		{
 			ft_putendl_fd(line, 2);
 			g_status = 2;
@@ -99,11 +99,11 @@ t_command	*ms_in_1(t_command *node, char **args, int *i)
 	line = "Minishell : unexpected token 'newline'";
 	++(*i);
 	if (args[++(*i)])
-		node->infile = ms_get_fd(node->infile, args[*i], flags);
-	if (!args[*i] || node->infile == -1)
+		node->in_file = ms_get_fd(node->in_file, args[*i], flags);
+	if (!args[*i] || node->in_file == -1)
 	{
 		*i = -1;
-		if (node->infile != -1)
+		if (node->in_file != -1)
 		{
 			ft_putendl_fd(line, 2);
 			g_status = 2;
@@ -129,12 +129,12 @@ t_command	*ms_in_2(t_command *node, char **args, int *i)
 	if (args[++(*i)])
 	{
 		aux[0] = args[*i];
-		node->infile = ms_here_doc(str, aux);
+		node->in_file = ms_here_doc(str, aux);
 	}
-	if (!args[*i] || node->infile == -1)
+	if (!args[*i] || node->in_file == -1)
 	{
 		*i = -1;
-		if (node->infile != -1)
+		if (node->in_file != -1)
 		{
 			ft_putendl_fd(line, 2);
 			g_status = 2;
