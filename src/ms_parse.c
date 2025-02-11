@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:16:44 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/10 15:19:20 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:32:27 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,21 @@ t_command	*ms_params(t_command *node, char **temp[2], int *i)
 void	*ms_parse_and_exec(char **output, t_prompt *prompt)
 {
 	int	terminate;
+	int	i;
 
 	terminate = 0;
 	output = ms_split_output(output, prompt);
 	prompt->cmds = ms_nodes(output, -1);
+	if (!prompt->cmds)
+		return (prompt);
+	i = ft_lstsize(prompt->cmds);
 	g_status = builtin_or_cmd(prompt, prompt->cmds, &terminate);
+	while (i-- > 0)
+		waitpid(-1, &g_status, 0);
+	if (!terminate && g_status == 13)
+		g_status = 0;
+	if (g_status > 255)
+		g_status = g_status / 255;
 	if (output && terminate)
 	{
 		ft_lstclear(&prompt->cmds, ms_clean);
