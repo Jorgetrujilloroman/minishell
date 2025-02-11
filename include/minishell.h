@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/11 16:00:40 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/11 20:14:21 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,9 @@ t_command	*ms_in_2(t_command *node, char **args, int *i);
 
 // EXECUTE
 
-/* Runs over cmds and execute builtins. Execute the cmd if it isn't a builtin */
+/* Runs over cmds and executes builtins. If it isn't a builtin, 
+executes the cmd. Waits for all child processes to finish 
+and updates g_status based on their exit status. */
 int			builtin_or_cmd(t_prompt *prompt, t_list *cmd, int	*terminate);
 /* Handling the exit of the program with a status code based on the arguments */
 int			ms_exit(t_list *cmd, int *terminate);
@@ -164,8 +166,9 @@ void		*exec_cmd(t_prompt *prompt, t_list *cmd);
 /* Check and return 1 if a command is a builtin */
 int			is_builtin(t_command *cmd);
 /* Check errors and if there is a command to exec call ms_exec */
-void	*ms_fork_check(t_prompt	*prompt, t_list *cmd, int fd[2]);
+void		*ms_fork_check(t_prompt	*prompt, t_list *cmd, int fd[2]);
 /* Executes the command, echo or pwd or env that is running in the node */
-void	ms_child_builtin(t_prompt *t_prompt, t_command *node, int lenght, t_list *cmd);
+void		ms_child_builtin(t_prompt *t_prompt, t_command *node,
+				int lenght, t_list *cmd);
 
 #endif

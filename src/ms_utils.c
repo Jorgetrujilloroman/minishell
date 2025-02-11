@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 12:57:49 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/11 15:59:04 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:38:40 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	*ms_handle_error(char *error, char *param, int g_status_error)
 {
 	g_status = g_status_error;
 	ft_putstr_fd(error, 2);
-	ms_putendl_fd(param, 2); //pending to be fixed to check if not NULL
+	ms_putendl_fd(param, 2);
 	return (NULL);
 }
 

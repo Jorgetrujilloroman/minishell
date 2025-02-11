@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:47:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/11 16:23:34 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:49:12 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char	*find_cmd_in_path(t_prompt *p, t_command *current_cmd,
 	free(path);
 	full_path = find_cmd(*split_path, current_cmd->full_cmd[0]);
 	if (!full_path || !current_cmd->full_cmd[0] || !current_cmd->full_cmd[0][0])
-		ms_handle_error("minishell: command not found\n",
+		ms_handle_error("minishell: command not found: ",
 			current_cmd->full_cmd[0], 127);
 	return (full_path);
 }
@@ -98,14 +98,14 @@ static void	prepare_command(t_prompt *prompt, t_list *cmd)
 	full_path = current_cmd->full_path;
 	full_cmd = current_cmd->full_cmd;
 	if (!is_builtin(current_cmd) && full_cmd && dir)
-		ms_handle_error("minishell: Is a directory\n", full_cmd[0], 126);
+		ms_handle_error("minishell: Is a directory: ", full_cmd[0], 126);
 	else if (!is_builtin(current_cmd) && full_path
 		&& access(full_path, F_OK) == -1)
-		ms_handle_error("minishell: No such file or directory\n",
+		ms_handle_error("minishell: No such file or directory: ",
 			full_path, 127);
 	else if (!is_builtin(current_cmd) && full_path
 		&& access(full_path, X_OK) == -1)
-		ms_handle_error("minishell: Permission denied\n", full_path, 126);
+		ms_handle_error("minishell: Permission denied: ", full_path, 126);
 	if (dir)
 		closedir(dir);
 	ft_free_matrix(split_path);

@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:52:51 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/11 16:18:45 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/11 20:17:09 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,47 +41,30 @@ int	ft_putmatrix_fd(char **m, int nl, int fd)
 	return (count);
 }
 
-/* void	ms_child_builtin(t_prompt *prompt, t_command *node, int lenght, t_list *cmd)
+void	ms_child_builtin(t_prompt *prompt, t_command *node, int lenght,
+		t_list *cmd)
 {
 	signal(SIGINT, SIG_DFL);
 	signal(SIGQUIT, SIG_DFL);
-	if (!is_builtin(node) && node->full_cmd)
-		execve(node->full_path, node->full_cmd, prompt->envp);
-	else if (node->full_cmd && !ft_strncmp(*node->full_cmd, "pwd", lenght) \
+	if (node->full_cmd && !ft_strncmp(*node->full_cmd, "pwd", lenght)
 		&& lenght == 3)
 		g_status = ms_pwd();
-	else if (is_builtin(node) && node->full_cmd && \
-		!ft_strncmp(*node->full_cmd, "echo", lenght) && lenght == 4)
+	else if (node->full_cmd && !ft_strncmp(*node->full_cmd, "echo", lenght)
+		&& lenght == 4)
 		g_status = ms_echo(cmd);
-	else if (is_builtin(node) && node->full_cmd && \
-		!ft_strncmp(*node->full_cmd, "env", lenght) && lenght == 3)
+	else if (node->full_cmd && !ft_strncmp(*node->full_cmd, "env", lenght)
+		&& lenght == 3)
 	{
 		ft_putmatrix_fd(prompt->envp, 1, 1);
 		g_status = 0;
 	}
-} */
-void	ms_child_builtin(t_prompt *prompt, t_command *node, int lenght, t_list *cmd)
-{
-    signal(SIGINT, SIG_DFL);
-    signal(SIGQUIT, SIG_DFL);
-
-    if (node->full_cmd && !ft_strncmp(*node->full_cmd, "pwd", lenght) && lenght == 3)
-        g_status = ms_pwd();
-    else if (node->full_cmd && !ft_strncmp(*node->full_cmd, "echo", lenght) && lenght == 4)
-        g_status = ms_echo(cmd);
-    else if (node->full_cmd && !ft_strncmp(*node->full_cmd, "env", lenght) && lenght == 3)
-    {
-        ft_putmatrix_fd(prompt->envp, 1, 1);
-        g_status = 0;
-    }
-    else if (node->full_cmd)
-    {
-        if (execve(node->full_path, node->full_cmd, prompt->envp) == -1)
-        {
-			printf("%s\n", node->full_path);
-            perror("minishell");
-            g_status = 127;
-            exit(g_status);
-        }
-    }
+	else if (node->full_cmd)
+	{
+		if (execve(node->full_path, node->full_cmd, prompt->envp) == -1)
+		{
+			perror("minishell");
+			g_status = 127;
+			exit(g_status);
+		}
+	}
 }

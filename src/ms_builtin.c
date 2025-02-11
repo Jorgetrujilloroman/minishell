@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:51:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/11 12:46:02 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/11 20:12:22 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ static int	exec_builtin(t_prompt *prompt, t_list *cmd, int *terminate)
 
 int	builtin_or_cmd(t_prompt *prompt, t_list *cmd, int	*terminate)
 {
+	int	status;
+
 	while (cmd)
 	{
 		if (!exec_builtin(prompt, cmd, terminate))
@@ -87,6 +89,13 @@ int	builtin_or_cmd(t_prompt *prompt, t_list *cmd, int	*terminate)
 			exec_cmd(prompt, cmd);
 		}
 		cmd = cmd->next;
+	}
+	while (waitpid(-1, &status, 0) > 0)
+	{
+		if (WIFEXITED(status))
+			g_status = WEXITSTATUS(status);
+		else if (WIFSIGNALED(status))
+			g_status = 128 + WTERMSIG(status);
 	}
 	return (g_status);
 }

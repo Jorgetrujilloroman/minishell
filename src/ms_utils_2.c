@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 19:28:21 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/08 21:10:46 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:43:04 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	if_sigint(int sig)
 	{
 		g_status = 130;
 		tcgetattr(STDIN_FILENO, &term);
-		term.c_lflag &= ~ECHOCTL;
+		term.c_lflag &= ~ECHOE;
 		tcsetattr(STDIN_FILENO, TCSANOW, &term);
 		write(STDIN_FILENO, "\n", 1);
 		rl_replace_line("", 0);

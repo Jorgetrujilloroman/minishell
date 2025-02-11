@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_builtin_funcs_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:26:54 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/11 15:35:50 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/11 20:18:56 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ms_echo(t_list *cmd)
 int	ms_pwd(void)
 {
 	char	*buf;
-	
+
 	buf = getcwd(NULL, 0);
 	ft_putendl_fd(buf, 1);
 	free(buf);
