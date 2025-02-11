@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:51:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/10 21:54:09 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:46:02 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,26 @@ extern int	g_status;
 
 int	is_builtin(t_command *cmd)
 {
-	return (0);  //todo
+	const char	*builtins[] = {"cd", "export", "unset", "pwd",
+		"echo", "env", "exit", NULL};
+	int			i;
+	int			len;
+
+	if (!cmd || !cmd->full_cmd || !cmd->full_cmd[0])
+		return (0);
+	if (ft_strchr(cmd->full_cmd[0], '/')
+		|| (cmd->full_path && ft_strchr(cmd->full_path, '/')))
+		return (0);
+	len = ft_strlen(cmd->full_cmd[0]);
+	i = 0;
+	while (builtins[i])
+	{
+		if (!ft_strncmp(cmd->full_cmd[0], builtins[i], len)
+			&& len == (int)ft_strlen(builtins[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 // Initialize all the custom builtins and assign their functions
