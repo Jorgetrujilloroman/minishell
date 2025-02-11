@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/10 21:53:49 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:00:40 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ Returns -1 if not exist. */
 int			ft_strchr_i(const char *s, int c);
 /* Replaces the n-th element in a matrix with elements from another matrix. */
 char		**ms_matrix_replace_n(char ***src, char **add, int n);
+/* Write str with '\n' in fd and return the nbr of characters */
+int			ms_putendl_fd(char *s, int fd);
 
 // PARSE
 
@@ -153,9 +155,17 @@ int			ms_cd(t_prompt *p);
 int			ms_export(t_prompt *p);
 /* Minishell implementation of unset builtin */
 int			ms_unset(t_prompt	*p);
+/* Say the path of the current directory */
+int			ms_pwd(void);
+/* Minishell implementation of echo builtin */
+int			ms_echo(t_list *cmd);
 /* Executes a command in a child process with pipes, ensuring file handling.*/
 void		*exec_cmd(t_prompt *prompt, t_list *cmd);
 /* Check and return 1 if a command is a builtin */
 int			is_builtin(t_command *cmd);
+/* Check errors and if there is a command to exec call ms_exec */
+void	*ms_fork_check(t_prompt	*prompt, t_list *cmd, int fd[2]);
+/* Executes the command, echo or pwd or env that is running in the node */
+void	ms_child_builtin(t_prompt *t_prompt, t_command *node, int lenght, t_list *cmd);
 
 #endif

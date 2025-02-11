@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_cmd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:47:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/10 22:02:25 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:47:06 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,8 @@ void	*exec_cmd(t_prompt *prompt, t_list *cmd)
 	prepare_command(prompt, cmd);
 	if (pipe(fd) == -1)
 		ms_handle_error("minishell: error creating pipe\n", NULL, 1);
-/* 	if (!fork_check(prompt, cmd, fd)) // to_create
-		return (NULL); */
+	if (!ms_fork_check(prompt, cmd, fd))
+		return (NULL);
 	close(fd[PIPE_WRITE_END]);
 	if (next_cmd && !next_cmd->in_file)
 		next_cmd->in_file = fd[PIPE_READ_END];

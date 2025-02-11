@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 08:11:51 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/02 08:12:34 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:00:22 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,15 @@ char	**ms_separate_matrix(char **aux, char const *s, char *set, int i[3])
 			aux[i[2]++] = ft_substr(s, i[1], i[0] - i[1]);
 	}
 	return (aux);
+}
+
+int	ms_putendl_fd(char *s, int fd)
+{
+	if (s != NULL)
+	{
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd('\n', fd);
+		return ((int)ft_strlen(s) + 1);
+	}
+	return (0);
 }
