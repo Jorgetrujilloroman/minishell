@@ -48,7 +48,7 @@ all: $(NAME)
 
 libft:
 	@if [ ! -d "$(LIBFT_DIR)" ]; then \
-		echo "Cloning $(YELLOW)Libft$(RESET) repository..."; \
+		echo "Cloning $(YELLOW)libft$(RESET) repository..."; \
 		git clone $(LIBFT_REPO) > /dev/null 2>&1; \
 	fi
 		@$(MAKE) -C $(LIBFT_DIR) > /dev/null 2>&1

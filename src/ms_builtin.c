@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:51:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/10 13:19:14 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:54:09 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 extern int	g_status;
 
-// Initialize all the custom builtins and assign their functions
+int	is_builtin(t_command *cmd)
+{
+	return (0);  //todo
+}
 
+// Initialize all the custom builtins and assign their functions
 static void	init_builtins(t_builtin *builtins)
 {
 	builtins[0] = (t_builtin){"cd", ms_cd};
@@ -25,7 +29,6 @@ static void	init_builtins(t_builtin *builtins)
 }
 
 // Execute the builtins or exit the minishell if the exit builtin is executed
-
 static int	exec_builtin(t_prompt *prompt, t_list *cmd, int *terminate)
 {
 	char		**full_cmd;
@@ -62,7 +65,7 @@ int	builtin_or_cmd(t_prompt *prompt, t_list *cmd, int	*terminate)
 		{
 			signal(SIGINT, SIG_IGN);
 			signal(SIGQUIT, SIG_IGN);
-			exec_cmd(prompt, cmd); //todo
+			exec_cmd(prompt, cmd);
 		}
 		cmd = cmd->next;
 	}

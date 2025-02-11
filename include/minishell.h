@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:01 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/10 15:09:46 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:53:49 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <termios.h>
+# include <dirent.h>
 
 //COLORS
 # define DEFAULT "\001\033[0;39m\002"
@@ -154,4 +155,7 @@ int			ms_export(t_prompt *p);
 int			ms_unset(t_prompt	*p);
 /* Executes a command in a child process with pipes, ensuring file handling.*/
 void		*exec_cmd(t_prompt *prompt, t_list *cmd);
+/* Check and return 1 if a command is a builtin */
+int			is_builtin(t_command *cmd);
+
 #endif
