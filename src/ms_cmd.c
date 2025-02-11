@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_cmd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:47:08 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/11 15:47:06 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:23:34 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ static char	*find_cmd(char **env_path, char *cmd)
 		free(tmp);
 		if (!full_path)
 			return (NULL);
-		if (access(full_path, F_OK) == 0)
+		if (access(full_path, X_OK) == 0)
 			return (full_path);
-		return (full_path);
 	}
 	free(full_path);
 	return (NULL);
@@ -51,7 +50,7 @@ static char	*find_cmd_in_path(t_prompt *p, t_command *current_cmd,
 	path = ms_get_env("PATH", p->envp, 4);
 	*split_path = ft_split(path, ':');
 	free(path);
-	full_path = find_cmd(*split_path, current_cmd->full_path);
+	full_path = find_cmd(*split_path, current_cmd->full_cmd[0]);
 	if (!full_path || !current_cmd->full_cmd[0] || !current_cmd->full_cmd[0][0])
 		ms_handle_error("minishell: command not found\n",
 			current_cmd->full_cmd[0], 127);
