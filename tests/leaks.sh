@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# Ejecutar Valgrind con opciones de depuración completas
+# Running Valgrind with full debugging options
 valgrind --leak-check=full --track-origins=yes ./bin/minishell
