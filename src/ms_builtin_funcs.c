@@ -6,41 +6,13 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:06:50 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/05 11:21:40 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:20:26 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
 extern int	g_status;
-
-int	ms_exit(t_list *cmd, int *terminate)
-{
-	t_command	*node;
-	long		status;
-
-	node = cmd->content;
-	*terminate = !cmd->next;
-	if (*terminate)
-		ft_putstr_fd("exit\n", 2);
-	if (!node->full_cmd || !node->full_cmd[1])
-		return (0);
-	status = ft_atoi(node->full_cmd[1]);
-	if (status == 0 && node->full_cmd[1][0] != '0')
-	{
-		ft_putstr_fd("minishell: exit invalid argument: ", 2);
-		ft_putstr_fd(node->full_cmd[1], 2);
-		ft_putstr_fd(": numeric argument required\n", 2);
-		return (255);
-	}
-	else if (node->full_cmd[2])
-	{
-		*terminate = 0;
-		ft_putstr_fd("minishell: exit: too many arguments\n", 2);
-		return (1);
-	}
-	return (status);
-}
 
 // Update the env vars after doing a cd builtin
 static void	cd_update_env_vars(t_prompt *p, char *oldpwd)
@@ -53,6 +25,16 @@ static void	cd_update_env_vars(t_prompt *p, char *oldpwd)
 		newpwd = ft_strdup("");
 	p->envp = ms_add_env("PWD", newpwd, p->envp);
 	free(newpwd);
+}
+
+/* changes the current directory to home if path is NULL or "~",
+otherwise it changes to the directory specified by path */
+static int	change_directory(char *path, char *home)
+{
+	if (!path || ft_strncmp(path, "~", 2) == 0)
+		return (chdir(home));
+	return (chdir(path));
+
 }
 
 int	ms_cd(t_prompt *p)
@@ -69,10 +51,7 @@ int	ms_cd(t_prompt *p)
 	old_pwd = getcwd(NULL, 0);
 	if (!old_pwd)
 		old_pwd = ft_strdup("");
-	if (!full_cmd[1] || ft_strncmp(full_cmd[1], "~", 2) == 0)
-		g_status = chdir(home);
-	else
-		g_status = chdir(full_cmd[1]);
+	g_status = change_directory(full_cmd[1], home);
 	if (g_status != 0)
 	{
 		ft_putstr_fd("minishell: cd: ", 2);
@@ -82,6 +61,7 @@ int	ms_cd(t_prompt *p)
 		cd_update_env_vars(p, old_pwd);
 	free(home);
 	free(old_pwd);
+	return (g_status);
 }
 
 /* Export and updates or adds environment variables in prompt->envp as needed */
