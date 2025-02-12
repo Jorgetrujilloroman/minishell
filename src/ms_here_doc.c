@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_here_doc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:52:03 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/10 15:11:46 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:08:10 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ms_get_str(char *str[2], size_t len, char *limit, char *warn)
 {
 	char	*temp;
 
+	str[1] = ft_strdup("");
+	str[0] = ft_strdup("");
 	while (g_status != 130 && (!str[0] || ft_strncmp(str[0], limit, len) \
 		|| ft_strlen(limit) != len))
 	{

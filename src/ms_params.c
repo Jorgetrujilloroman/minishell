@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_params.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:56:25 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/10 15:22:14 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/12 08:31:54 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_command	*ms_out_2(t_command *node, char **args, int *i)
 		*i = -1;
 		if (node->out_file != -1)
 		{
-			ft_putendl_fd(line, 2);
+			ms_putendl_fd(line, 2);
 			g_status = 2;
 		}
 		else
@@ -73,14 +73,14 @@ t_command	*ms_out_1(t_command *node, char **args, int *i)
 	flags[1] = 0;
 	line = "Minishell : unexpected token 'newline'";
 	++(*i);
-	if (args[++(*i)])
+	if (args[(*i)])
 		node->out_file = ms_get_fd(node->out_file, args[*i], flags);
 	if (!args[*i] || node->out_file == -1)
 	{
 		*i = -1;
 		if (node->out_file != -1)
 		{
-			ft_putendl_fd(line, 2);
+			ms_putendl_fd(line, 2);
 			g_status = 2;
 		}
 		else
@@ -105,7 +105,7 @@ t_command	*ms_in_1(t_command *node, char **args, int *i)
 		*i = -1;
 		if (node->in_file != -1)
 		{
-			ft_putendl_fd(line, 2);
+			ms_putendl_fd(line, 2);
 			g_status = 2;
 		}
 		else
@@ -136,7 +136,7 @@ t_command	*ms_in_2(t_command *node, char **args, int *i)
 		*i = -1;
 		if (node->in_file != -1)
 		{
-			ft_putendl_fd(line, 2);
+			ms_putendl_fd(line, 2);
 			g_status = 2;
 		}
 	}
