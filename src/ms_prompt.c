@@ -6,7 +6,7 @@
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 08:34:57 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/02 08:24:25 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:38:22 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static char	*ms_get_home(t_prompt prompt)
 		pwd = ft_strjoin("~", &pwd[ft_strlen(home)]);
 		free(temp);
 	}
+	free(home);
 	return (pwd);
 }
 
