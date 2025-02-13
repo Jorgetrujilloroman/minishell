@@ -80,6 +80,6 @@ fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean > /dev/null 2>&1
 	@rm -rf $(LIBFT_DIR)
 
-re: clean all
+re: fclean all
 
 .PHONY: all libft clean fclean re
