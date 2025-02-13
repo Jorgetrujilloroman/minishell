@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:06:50 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/12 17:20:26 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/13 12:48:09 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static int	change_directory(char *path, char *home)
 	if (!path || ft_strncmp(path, "~", 2) == 0)
 		return (chdir(home));
 	return (chdir(path));
-
 }
 
 int	ms_cd(t_prompt *p)

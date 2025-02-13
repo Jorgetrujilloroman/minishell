@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:16:44 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/11 16:32:27 by davigome         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:49:27 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ void	*ms_parse(char *output, t_prompt *p)
 	aux = ms_trim(output, " ");
 	free(output);
 	if (!aux)
-		ms_handle_error("Minishell could not trim the output", NULL, 1);
+		ms_handle_error("Minishell could not trim the output\n", NULL, 1);
 	if (!aux)
 		return ("");
 	p = ms_parse_and_exec(aux, p);
