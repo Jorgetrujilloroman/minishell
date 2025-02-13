@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:57:37 by davigome          #+#    #+#             */
-/*   Updated: 2025/02/08 20:04:20 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:59:40 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,12 @@ char	**ms_add_env(char *var, char *value, char **envp)
 
 	count[0] = -1;
 	temp[0] = ft_strjoin(var, "=");
+	if (!temp[0])
+		return (envp);
 	temp[1] = ft_strjoin(temp[0], value);
 	free(temp[0]);
+	if (!temp[1])
+		return (envp);
 	while (!ft_strchr(var, '=') && envp && envp[++count[0]])
 	{
 		count[1] = ms_strchr_pos(envp[count[0]], '=');

@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:35:57 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/10 15:11:24 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:12:39 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,6 @@ int	main(int argc, char **argv, char **envp)
 		if (!ms_parse(output, &prompt))
 			break ;
 	}
+	ft_free_matrix(prompt.envp);
 	exit(g_status);
 }
